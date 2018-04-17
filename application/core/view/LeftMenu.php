@@ -3,15 +3,16 @@
  * Created by PhpStorm.
  * User: Max
  * Date: 15.04.2018
- * Time: 22:51
+ * Time: 22:50
  */
 
-namespace application\core;
+namespace application\core\view;
 
+use application\core\View;
 
-class Content extends View
+class LeftMenu extends View
 {
-    protected $template = 'content.php';
+    protected $template = 'leftMenu.php';
 
     protected function init()
     {

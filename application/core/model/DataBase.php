@@ -6,7 +6,7 @@
  * Time: 20:57
  */
 
-namespace application\core;
+namespace application\core\model;
 
 
 class DataBase

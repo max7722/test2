@@ -6,15 +6,17 @@
  * Time: 22:51
  */
 
-namespace application\core;
+namespace application\core\view;
 
+use application\core\View;
 
-class Footer extends View
+class Content extends View
 {
-    protected $template = 'footer.php';
+    protected $template = 'content.php';
 
     protected function init()
     {
         // TODO: Implement init() method.
     }
+
 }

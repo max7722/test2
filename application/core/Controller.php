@@ -8,12 +8,13 @@
 
 namespace application\core;
 
+use application\core\view;
 
 class Controller
 {
     public $oModel;
 
-    /** @var Body */
+    /** @var view\Body */
     public $oContent;
 
     /**
@@ -21,22 +22,22 @@ class Controller
      */
     public function __construct()
     {
-        $this->oContent = new Body();
+        $this->oContent = new view\Body();
 
-        $oLeftMenu = new LeftMenu();
-        $oHeadMenu = new HeadMenu();
-        $oFooter = new Footer();
-        $oContent = new Content();
+        $oLeftMenu = new view\LeftMenu();
+        $oHeadMenu = new view\HeadMenu();
+        $oFooter = new view\Footer();
+        $oContent = new view\Content();
 
-        $oHeadMenuItem = new HeadMenuItem();
+        $oHeadMenuItem = new view\HeadMenuItem();
         $oHeadMenuItem->href = '12';
         $oHeadMenuItem->title = 12;
-        $oHeadMenu->addItems($oHeadMenuItem);
+        $oHeadMenu->addItem($oHeadMenuItem);
 
-        $oHeadMenuItem = new HeadMenuItem();
+        $oHeadMenuItem = new view\HeadMenuItem();
         $oHeadMenuItem->href = '34';
         $oHeadMenuItem->title = 34;
-        $oHeadMenu->addItems($oHeadMenuItem);
+        $oHeadMenu->addItem($oHeadMenuItem);
 
 
         $this->oContent->header->addItems($oHeadMenu);

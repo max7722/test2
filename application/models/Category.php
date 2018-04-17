@@ -8,7 +8,7 @@
 
 namespace application\models;
 
-use application\core\RecordPrototype;
+use application\core\model\RecordPrototype;
 
 /**
  * Class Category

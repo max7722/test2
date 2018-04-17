@@ -6,8 +6,9 @@
  * Time: 22:47
  */
 
-namespace application\core;
+namespace application\core\view;
 
+use application\core\View;
 
 class HeadMenu extends View
 {

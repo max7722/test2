@@ -6,7 +6,7 @@
  * Time: 20:58
  */
 
-namespace application\core;
+namespace application\core\model;
 
 
 abstract class RecordPrototype

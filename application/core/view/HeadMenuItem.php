@@ -6,7 +6,9 @@
  * Time: 0:27
  */
 
-namespace application\core;
+namespace application\core\view;
+
+use application\core\View;
 
 /**
  * Class HeadMenuItem

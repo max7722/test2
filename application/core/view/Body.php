@@ -6,8 +6,9 @@
  * Time: 22:03
  */
 
-namespace application\core;
+namespace application\core\view;
 
+use application\core\View;
 
 /**
  * Class Body

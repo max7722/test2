@@ -6,7 +6,9 @@
  * Time: 22:08
  */
 
-namespace application\core;
+namespace application\core\view;
+
+use application\core\View;
 
 /**
  * Class ContentBlock

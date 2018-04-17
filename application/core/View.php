@@ -10,7 +10,7 @@ namespace application\core;
 
 
 /**
- * Class View
+ * Class view
  * @package application\core
  * @property
  */
