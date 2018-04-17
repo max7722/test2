@@ -29,9 +29,9 @@ class DataBase
     {
         if (!self::$instance) {
             $dsn = 'mysql:host=' . self::$host . ';dbname=' . self::$dbname;
-            $opt = [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
+            $opt = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC];
 
-            self::$instance = new PDO($dsn, self::$user, self::$pass, $opt);
+            self::$instance = new \PDO($dsn, self::$user, self::$pass, $opt);
         }
 
         return self::$instance;
