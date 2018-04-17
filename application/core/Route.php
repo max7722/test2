@@ -8,8 +8,6 @@
 
 namespace application\core;
 
-use application\controllers;
-
 class Route
 {
     static private $sControllerName = 'Main';
@@ -45,6 +43,7 @@ class Route
         } else {
             $sFullControllerName = self::$sPathController . self::$sController404;
 
+            /** @var Controller $oController */
             $oController = new $sFullControllerName();
             $oController->actionIndex();
         }
