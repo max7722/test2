@@ -16,7 +16,6 @@ use application\models\Goods;
  * Class GoodsDetail
  * @package application\core\view
  * @property Goods goods
- * @property string image
  */
 class GoodsDetail extends View
 {
@@ -25,16 +24,10 @@ class GoodsDetail extends View
     protected function init()
     {
         $this->aParams['goods'] = '';
-        $this->aParams['image'] = '';
     }
 
     public function setGoods($value)
     {
         $this->aParams['goods'] = $value;
-    }
-
-    public function setImage($value)
-    {
-        $this->aParams['image'] = $value;
     }
 }
