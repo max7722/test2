@@ -41,7 +41,6 @@ abstract class RecordPrototype
 
         if (in_array($name, static::fields())) {
             $this->aAttribute[$name] = $value;
-
         }
     }
 
@@ -72,6 +71,23 @@ abstract class RecordPrototype
                     $this->aOldAttribute[$key] = $value;
                 }
             }
+        }
+    }
+
+    /**
+     * @param $sql
+     * @return bool
+     */
+    public static function execute($sql) {
+        try {
+            $db = DataBase::getInstance();
+
+            $db->exec($sql);
+            $db->commit();
+
+            return true;
+        } catch(\Exception $e) {
+            return false;
         }
     }
 
