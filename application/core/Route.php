@@ -22,6 +22,9 @@ class Route
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
+        //отсекаем первый пустой елемент
+        array_shift($routes);
+
         $sController = array_shift($routes);
         if ( !empty($sController) )
         {
@@ -39,13 +42,28 @@ class Route
 
         if (class_exists($sFullControllerName) && method_exists($sFullControllerName, $sFullActionName)) {
             $oController = new $sFullControllerName();
-            $oController->$sFullActionName();
-        } else {
-            $sFullControllerName = self::$sPathController . self::$sController404;
+            if (!empty($routes)) {
+                if (count($routes) === 1) {
+                    $oController->$sFullActionName($routes[0]);
 
-            /** @var Controller $oController */
-            $oController = new $sFullControllerName();
-            $oController->actionIndex();
+                    return;
+                }
+            } else {
+                $oController->$sFullActionName();
+
+                return;
+            }
         }
+
+        self::getPage404();
+    }
+
+    static public function getPage404()
+    {
+        $sFullControllerName = self::$sPathController . self::$sController404;
+
+        /** @var Controller $oController */
+        $oController = new $sFullControllerName();
+        $oController->actionIndex();
     }
 }
