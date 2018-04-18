@@ -22,7 +22,7 @@ class ContentBlock extends View
         $this->aParams['items'] = [];
     }
 
-    public function addItems($oItem)
+    public function addItem($oItem)
     {
         $this->aParams['items'][] = $oItem;
     }

@@ -40,11 +40,10 @@ class Controller
         $oHeadMenu->addItem($oHeadMenuItem);
 
 
-        $this->oContent->header->addItems($oHeadMenu);
-        $this->oContent->leftMenu->addItems($oLeftMenu);
-        $this->oContent->content->addItems($oContent);
-        $this->oContent->footer->addItems($oFooter);
-
+        $this->oContent->header->addItem($oHeadMenu);
+        $this->oContent->leftMenu->addItem($oLeftMenu);
+        $this->oContent->content->addItem($oContent);
+        $this->oContent->footer->addItem($oFooter);
     }
 
     public function actionIndex()

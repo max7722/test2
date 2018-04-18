@@ -1,0 +1,16 @@
+
+.goodsList {
+    width: 500px;
+}
+
+.goodsPosition {
+    border: 1px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 400px;
+ }
+
+.goods-name {
+    margin-right: 5px;
+    width: 100px;
+}
