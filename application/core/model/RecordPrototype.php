@@ -13,7 +13,7 @@ abstract class RecordPrototype
 {
     private $aAttribute = [];
 
-    private $aOldAttribute = [];
+    private $aOldAttribute;
 
     /**
      * @return string
@@ -274,6 +274,7 @@ abstract class RecordPrototype
 
         $sQueryForObject = 'SELECT * FROM ' . static::tableName() . ' WHERE id = ' . $idCurrent;
         $this->aOldAttribute = $db->query($sQueryForObject)->fetch();
+        $this->aAttribute = [];
 
         return true;
     }

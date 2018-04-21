@@ -49,7 +49,6 @@ class Category extends RecordPrototype
             $db = DataBase::getInstance();
             $oQuery = $db->prepare($sql);
 
-            echo $sql;
             if ($oQuery->execute([$this->id])) {
                 foreach ($oQuery->fetchAll() as $aRow) {
                     $this->aGoods[] = new Goods($aRow);
