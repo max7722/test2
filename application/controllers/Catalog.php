@@ -13,6 +13,7 @@ use application\core\Controller;
 use application\core\Route;
 use application\core\view\GoodsDetail;
 use application\core\view\GoodsList;
+use application\core\view\GoodsListRow;
 use application\models\Category;
 use application\models\Goods;
 
@@ -67,8 +68,12 @@ class Catalog extends Controller
             exit;
         }
 
+        $oGoodsListRow = new GoodsListRow();
+        $oGoodsListRow->goods = $oCategory->goods;
+
         $oGoodsListView = new GoodsList();
-        $oGoodsListView->addGoods($oCategory->goods);
+        $oGoodsListView->goodsRowView = $oGoodsListRow;
+        $oGoodsListView->category = $oCategory;
 
         $this->oContent->content->addItem($oGoodsListView);
 
