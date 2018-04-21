@@ -8,7 +8,9 @@
 
 namespace application\models;
 
+use application\core\model\DataBase;
 use application\core\model\RecordPrototype;
+use function Couchbase\basicDecoderV1;
 
 /**
  * Class Category
@@ -39,14 +41,20 @@ class Category extends RecordPrototype
         if (!isset($this->goods)) {
             $this->aGoods = [];
 
-            $aCategoryGoods = CategoryGoods::findAll(['id_category' => $this->id]);
+            $sql = 'SELECT `goods`.`id`, goods.name, goods.active, goods.description, goods.price, goods.image 
+                    FROM `category_goods` 
+                    JOIN `goods` ON `goods`.`id` = id_goods 
+                    WHERE id_category = ?';
 
-            $aGoods = [];
-            foreach ($aCategoryGoods as $oCategoryGoods) {
-                $aGoods[] = Goods::findOne($oCategoryGoods->id_goods);
+            $db = DataBase::getInstance();
+            $oQuery = $db->prepare($sql);
+
+            echo $sql;
+            if ($oQuery->execute([$this->id])) {
+                foreach ($oQuery->fetchAll() as $aRow) {
+                    $this->aGoods[] = new Goods($aRow);
+                }
             }
-
-            $this->aGoods = $aGoods;
         }
 
         return $this->aGoods;
@@ -73,6 +81,12 @@ class Category extends RecordPrototype
 
         $oCategoryGoods->id_goods = $oGoods->id;
 
-        return $oCategoryGoods->save();
+        if ($oCategoryGoods->save()) {
+            $this->aGoods[] = $oGoods;
+
+            return True;
+        }
+
+        return False;
     }
 }
