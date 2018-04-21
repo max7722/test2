@@ -16,7 +16,7 @@ use application\models\Goods;
 /**
  * Class GoodsList
  * @package application\core\view
- * @property-read Goods goodsList
+ * @property View goodsRowView
  * @property Category category
  */
 class GoodsList extends View
@@ -25,17 +25,13 @@ class GoodsList extends View
 
     protected function init()
     {
-        $this->aParams['goodsList'] = [];
+        $this->aParams['goodsRowView'] = '';
         $this->aParams['category'] = '';
     }
 
-    /**
-     * @param $oGoods
-     */
-    public function addGoods($oGoods)
+    public function setGoodsRowView($value)
     {
-        //todo поправить
-        $this->aParams['goodsList'] = $oGoods;
+        $this->aParams['goodsRowView'] = $value;
     }
 
     /**

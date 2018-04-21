@@ -1,3 +1,23 @@
+.content{
+    display: inline-block;
+}
+
+.header{
+    min-width: 100vw;
+    min-height: 100px;
+}
+
+
+.footer{
+    min-width: 100vw;
+    min-height: 100px;
+}
+
+.leftMenu {
+    display: inline-block;
+    width: 20vw;
+    min-height: 100px;
+}
 
 .goodsList {
     width: 500px;

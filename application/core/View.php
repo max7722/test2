@@ -12,7 +12,6 @@ namespace application\core;
 /**
  * Class view
  * @package application\core
- * @property
  */
 abstract class View
 {
