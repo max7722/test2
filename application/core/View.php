@@ -7,6 +7,7 @@
  */
 
 namespace application\core;
+use lib\codebase\Template;
 
 
 /**
@@ -70,7 +71,11 @@ abstract class View
      */
     abstract protected function init();
 
+    public function initRender(){}
+
     public function render() {
+        $this->initRender();
+
         foreach ($this->aParams as $paramName => $paramValue) {
             $$paramName = $paramValue;
         }
