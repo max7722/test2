@@ -8,7 +8,6 @@
 
 namespace application\core;
 
-use application\core\view;
 use application\models\Category;
 
 class Controller
@@ -30,20 +29,14 @@ class Controller
         $oFooter = new view\Footer();
         $oContent = new view\Content();
 
-        $aCategory = Category::findAll();
 
-        if (!empty($aCategory)) {
-            foreach ($aCategory as $oCategory) {
-                $oHeadMenuItem = new view\HeadMenuItem();
-                $oHeadMenuItem->href = '/catalog/category/' . $oCategory->id;
-                $oHeadMenuItem->title = $oCategory->name;
+        $this->oContent->header->setTemplate('head_start.php');
+        $this->oContent->footer->setTemplate('footer_start.php');
 
-                $oHeadMenu->addItem($oHeadMenuItem);
-            }
-        }
+        $oSidebar = $this->getSidebar();
 
         $this->oContent->header->addItem($oHeadMenu);
-        $this->oContent->leftMenu->addItem($oLeftMenu);
+        $this->oContent->leftMenu->addItem($oSidebar);
         $this->oContent->content->addItem($oContent);
         $this->oContent->footer->addItem($oFooter);
     }
@@ -51,5 +44,29 @@ class Controller
     public function actionIndex()
     {
 
+    }
+    
+    private function getSidebar()
+    {
+        $oSidebar = new view\Sidebar\SidebarView();
+        
+        $oSidebar->head->path = 'http://' . $_SERVER['HTTP_HOST'];
+        $oSidebar->head->firstHalfTitle = 'Быт';
+        $oSidebar->head->secondHalfTitle = 'Тех';
+        
+        $oGoodsSidebarView = new view\Sidebar\SubMenuView();
+        $oGoodsSidebarView->title = 'Товары';
+        
+        $aCategores = Category::findAll();
+        foreach ($aCategores as $oCategory) {
+            $oCategorySidebarView = new view\Sidebar\MenuItem();
+            $oCategorySidebarView->title = $oCategory->name;
+            $oCategorySidebarView->path = 'http://' . $_SERVER['HTTP_HOST'] . '/catalog/category/' . $oCategory->id;
+            $oGoodsSidebarView->addItems($oCategorySidebarView);
+        }
+        
+        $oSidebar->menu->addItems($oGoodsSidebarView);
+
+        return $oSidebar;
     }
 }

@@ -7,7 +7,8 @@
  */
 
 namespace application\core;
-use lib\codebase\Template;
+
+use application\core\view\CodebaseConfig;
 
 
 /**
@@ -71,7 +72,13 @@ abstract class View
      */
     abstract protected function init();
 
-    public function initRender(){}
+    public function initRender()
+    {
+        //точно здесь?
+        $oTemplate = CodebaseConfig::getTemplateConfig();
+
+        $this->aParams['cb'] = $oTemplate;
+    }
 
     public function render() {
         $this->initRender();
