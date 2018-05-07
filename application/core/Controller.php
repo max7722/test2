@@ -41,18 +41,18 @@ class Controller
     {
 
     }
-    
+
     private function getSidebar()
     {
         $oSidebar = new view\Sidebar\SidebarView();
-        
+
         $oSidebar->head->path = 'http://' . $_SERVER['HTTP_HOST'];
         $oSidebar->head->firstHalfTitle = 'Быт';
         $oSidebar->head->secondHalfTitle = 'Тех';
-        
+
         $oGoodsSidebarView = new view\Sidebar\SubMenuView();
         $oGoodsSidebarView->title = 'Товары';
-        
+
         $aCategores = Category::findAll();
         foreach ($aCategores as $oCategory) {
             $oCategorySidebarView = new view\Sidebar\MenuItem();
@@ -60,7 +60,7 @@ class Controller
             $oCategorySidebarView->path = CodebaseConfig::getTemplateConfig()->sMainPath . '/catalog/category/' . $oCategory->id;
             $oGoodsSidebarView->addItems($oCategorySidebarView);
         }
-        
+
         $oSidebar->menu->addItems($oGoodsSidebarView);
 
         return $oSidebar;
