@@ -8,6 +8,7 @@
 
 namespace application\core;
 
+use application\core\view\CodebaseConfig;
 use application\models\Category;
 
 class Controller
@@ -24,18 +25,13 @@ class Controller
     {
         $this->oContent = new view\Body();
 
-        $oLeftMenu = new view\LeftMenu();
-        $oHeadMenu = new view\HeadMenu();
         $oFooter = new view\Footer();
         $oContent = new view\Content();
 
-
-        $this->oContent->header->setTemplate('head_start.php');
-        $this->oContent->footer->setTemplate('footer_start.php');
-
         $oSidebar = $this->getSidebar();
+        $oHeader = $this->getHeader();
 
-        $this->oContent->header->addItem($oHeadMenu);
+        $this->oContent->header->addItem($oHeader);
         $this->oContent->leftMenu->addItem($oSidebar);
         $this->oContent->content->addItem($oContent);
         $this->oContent->footer->addItem($oFooter);
@@ -61,12 +57,19 @@ class Controller
         foreach ($aCategores as $oCategory) {
             $oCategorySidebarView = new view\Sidebar\MenuItem();
             $oCategorySidebarView->title = $oCategory->name;
-            $oCategorySidebarView->path = 'http://' . $_SERVER['HTTP_HOST'] . '/catalog/category/' . $oCategory->id;
+            $oCategorySidebarView->path = CodebaseConfig::getTemplateConfig()->sMainPath . '/catalog/category/' . $oCategory->id;
             $oGoodsSidebarView->addItems($oCategorySidebarView);
         }
         
         $oSidebar->menu->addItems($oGoodsSidebarView);
 
         return $oSidebar;
+    }
+
+    private function getHeader()
+    {
+        $oHeaderView = new view\Header\HeaderView();
+
+        return $oHeaderView;
     }
 }
