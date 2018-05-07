@@ -10,15 +10,19 @@ namespace application\core;
 
 class Route
 {
-    static private $sControllerName = 'Main';
-    static private $sActionName = 'Index';
-    static private $sActionPrefix = 'action';
-    static private $sPathController = 'application\controllers\\';
+    private static $sControllerName = 'Main';
+    private static $sActionName = 'Index';
+    private static $sActionPrefix = 'action';
+    private static $sPathController = 'application\controllers\\';
 
-    static private $sController404 = 'Controller404';
+    private static $sController404 = 'Controller404';
 
-    static public function Start()
+    public static function Start()
     {
+        if (!empty($_POST['ajax'])) {
+            self::startAjax();
+            exit;
+        }
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
@@ -26,14 +30,12 @@ class Route
         array_shift($routes);
 
         $sController = array_shift($routes);
-        if ( !empty($sController) )
-        {
+        if (!empty($sController)) {
             self::$sControllerName = ucfirst($sController);
         }
 
         $sAction = array_shift($routes);
-        if ( !empty($sAction) )
-        {
+        if (!empty($sAction)) {
             self::$sActionName = ucfirst($sAction);
         }
 
@@ -43,8 +45,8 @@ class Route
         if (class_exists($sFullControllerName) && method_exists($sFullControllerName, $sFullActionName)) {
             $oController = new $sFullControllerName();
             if (!empty($routes)) {
-                if (count($routes) === 1) {
-                    $oController->$sFullActionName($routes[0]);
+                if (!empty($routes)) {
+                    $oController->$sFullActionName($routes);
 
                     return;
                 }
@@ -58,7 +60,7 @@ class Route
         self::getPage404();
     }
 
-    static public function getPage404()
+    public static function getPage404()
     {
         $sFullControllerName = self::$sPathController . self::$sController404;
 

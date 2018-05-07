@@ -56,7 +56,7 @@ abstract class RecordPrototype
             return $this->aAttribute[$name];
         }
 
-        if (key_exists($name, $this->aOldAttribute)) {
+        if (@key_exists($name, $this->aOldAttribute)) {
             return $this->aOldAttribute[$name];
         }
 
@@ -253,7 +253,7 @@ abstract class RecordPrototype
             return false;
         }
 
-        $sQueryForObject = 'SELECT * FROM ' . static::tableName() . ' WHERE id = ' . $this->id;
+        $sQueryForObject = 'SELECT * FROM `' . static::tableName() . '` WHERE id = ' . $this->id;
         $this->aOldAttribute = $db->query($sQueryForObject)->fetch();
 
         return true;
@@ -287,7 +287,8 @@ abstract class RecordPrototype
 
         $this->id = $idCurrent;
 
-        $sQueryForObject = 'SELECT * FROM ' . static::tableName() . ' WHERE id = ' . $idCurrent;
+        $sQueryForObject = 'SELECT * FROM `' . static::tableName() . '` WHERE id = ' . $idCurrent;
+
         $this->aOldAttribute = $db->query($sQueryForObject)->fetch();
         $this->aAttribute = [];
 
