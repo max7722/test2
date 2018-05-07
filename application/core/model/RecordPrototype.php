@@ -125,11 +125,24 @@ abstract class RecordPrototype
      * @param int $param
      * @return static[]
      */
-    public static function findAll($param = 0)
+    public static function findAll($param = 0, $limit = 0, $offset = 0)
     {
         $db = DataBase::getInstance();
 
         $aValues = null;
+
+        $sAppendedLimit = '';
+        if (is_numeric($limit) && $limit > 0) {
+            $sAppendedLimit .= $limit;
+        }
+
+        if (is_numeric($offset) && $offset > 0) {
+            $sAppendedLimit = $offset . ', ' . $sAppendedLimit;
+        }
+
+        if ($sAppendedLimit) {
+            $sAppendedLimit = ' LIMIT ' . $sAppendedLimit;
+        }
 
         if ($param) {
             if (is_array($param)) {
@@ -142,9 +155,11 @@ abstract class RecordPrototype
             $aValues = array_values($aIdItems);
             $sFields = implode(' = ? AND ', $aFields) . ' = ?';
 
-            $oQuery = $db->prepare('SELECT * FROM `' . static::tableName() . '` WHERE ' . $sFields);
+            $oQuery = $db->prepare('SELECT * FROM `' . static::tableName() . '` WHERE ' . $sFields .
+                $sAppendedLimit);
         } else {
-            $oQuery = $db->prepare('SELECT * FROM `' . static::tableName() . '` WHERE 1');
+            $oQuery = $db->prepare('SELECT * FROM `' . static::tableName() . '` WHERE 1' .
+                $sAppendedLimit);
         }
 
         if (!$oQuery->execute($aValues)) {
