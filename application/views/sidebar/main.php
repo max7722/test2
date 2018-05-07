@@ -11,12 +11,10 @@
 /** @var \application\core\View $menu */
 ?>
 
-<nav id="sidebar">
-    <div id="sidebar-scroll">
-        <div class="sidebar-content">
-            <?=$head->render()?>
-            <?=$user->render()?>
-            <?=$menu->render()?>
-        </div>
+<div id="sidebar-scroll">
+    <div class="sidebar-content">
+        <?=$head->render()?>
+        <?=$user->render()?>
+        <?=$menu->render()?>
     </div>
-</nav>
+</div>

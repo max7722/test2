@@ -10,7 +10,6 @@ namespace application\core\view\Sidebar;
 
 
 use application\core\View;
-use application\core\view\HeadMenu;
 
 /**
  * Class SidebarView
