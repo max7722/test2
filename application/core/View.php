@@ -23,6 +23,8 @@ abstract class View
     /** @var array  */
     protected $aParams = [];
 
+    /** @var string[]  */
+    protected $aJsList = [];
 
     public function __construct($sTemplate = '')
     {
@@ -76,6 +78,7 @@ abstract class View
     {
         //точно здесь?
         $oTemplate = CodebaseConfig::getTemplateConfig();
+        $oTemplate->addJs($this->aJsList);
 
         $this->aParams['cb'] = $oTemplate;
     }

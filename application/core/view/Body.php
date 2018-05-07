@@ -23,8 +23,22 @@ class Body extends View
 {
     protected $template = 'body.php';
 
+    protected $aJsList = [
+        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.min.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/core/bootstrap.bundle.min.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.slimscroll.min.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.scrollLock.min.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.appear.min.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.countTo.min.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/core/js.cookie.min.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/codebase.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/plugins/chartjs/Chart.bundle.min.js',
+        CodebaseConfig::ASSETS_FOLDER . '/js/pages/be_pages_dashboard.js',
+    ];
+
     function init()
     {
+        $this->aParams['head'] = new Head();
         $this->aParams['header'] = new ContentBlock('header.php');
         $this->aParams['leftMenu'] = new ContentBlock('leftMenu.php');
         $this->aParams['content'] = new ContentBlock('content.php');

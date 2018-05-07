@@ -7,16 +7,10 @@
  */
 /** @var \application\core\View [] $items */
 
-if (!empty($items)) {
-    ?>
-    <div class="leftMenu">
-        <?
-        foreach ($items as $item) {
-            ?>
+if (!empty($items)): ?>
+    <nav id="sidebar">
+        <? foreach ($items as $item): ?>
             <div class="leftMenuItem"><?=$item->render()?></div>
-            <?
-        }
-        ?>
-    </div>
-    <?
-}
+        <? endforeach; ?>
+    </nav>
+<? endif;

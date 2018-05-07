@@ -7,16 +7,10 @@
  */
 /** @var \application\core\View [] $items */
 
-if (!empty($items)) {
-    ?>
-    <div class="content">
-        <?
-        foreach ($items as $item) {
-            ?>
-            <div class="contentItem"><?=$item->render()?></div>
-            <?
-        }
-        ?>
-    </div>
-    <?
-}
+if (!empty($items)): ?>
+    <main id="main-container">
+        <? foreach ($items as $item): ?>
+            <?=$item->render()?>
+        <? endforeach; ?>
+    </main>
+<? endif; ?>

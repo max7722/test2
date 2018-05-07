@@ -2,21 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: Max
- * Date: 15.04.2018
- * Time: 22:50
+ * Date: 06.05.2018
+ * Time: 19:32
  */
 
 namespace application\core\view;
 
+
 use application\core\View;
 
-class LeftMenu extends View
+class Page404 extends View
 {
-    protected $template = 'leftMenu.php';
+    protected $template = 'page404.php';
 
     protected function init()
     {
-        // TODO: Implement init() method.
     }
-
 }

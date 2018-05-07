@@ -19,7 +19,7 @@ use application\models\Goods;
  */
 class GoodsDetail extends View
 {
-    public $template = 'goodsDetail.php';
+    public $template = 'catalog/goodsDetail.php';
 
     protected function init()
     {
