@@ -10,11 +10,14 @@ namespace application\controllers;
 
 
 use application\core\Controller;
+use application\core\view\Page404;
 
 class Controller404 extends Controller
 {
     public function actionIndex()
     {
-        echo 'NO';
+        $this->oContent->content->addItem(new Page404());
+
+        $this->oContent->render();
     }
 }
