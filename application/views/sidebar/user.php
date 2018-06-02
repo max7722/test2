@@ -17,12 +17,12 @@
         <img class="img-avatar img-avatar32" src="<?=$cb->assets_folder?>/img/avatars/avatar15.jpg" alt="">
     </div>
     <div class="sidebar-mini-hidden-b text-center">
-            <a class="img-link" href="<?//todo?>">
+            <a class="img-link" href="/profile">
                 <img class="img-avatar" src="<?=$cb->assets_folder?>/img/avatars/avatar15.jpg" alt="">
             </a>
             <ul class="list-inline mt-10">
                 <li class="list-inline-item">
-                    <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="<?//todo?>"><?
+                    <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="/profile"><?
                         if ($user) {
                             echo $user->login;
                         }
