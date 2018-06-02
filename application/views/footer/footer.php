@@ -6,6 +6,6 @@
  * Time: 13:28
  */
 
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 ?>

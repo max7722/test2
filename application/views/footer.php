@@ -6,7 +6,7 @@
  * Time: 23:00
  */
 /** @var \application\core\View [] $items */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 if (!empty($items)): ?>
     <footer id="page-footer" class="opacity-0" style="opacity: 1;">

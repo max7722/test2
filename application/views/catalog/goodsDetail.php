@@ -7,7 +7,7 @@
  */
 
 /** @var \application\models\Goods $goods */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 ?>
 
@@ -18,7 +18,10 @@
             <div class="row items-push">
                 <div class="col-md-4">
                     <div class="">
-                        <img class="img-fluid" src="<?=$cb->sMainPath . $cb->sWebFolder . '/' . $goods->image?>" alt="">
+                        <img class="img-fluid" src="
+                        <? if ($goods->image): ?><?=$cb->sMainPath . $cb->sWebFolder . '/' . $goods->image?>
+                        <? else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
+                        <? endif; ?>" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -36,7 +39,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="font-size-h4 font-w600 text-center"><?=$goods->price?> руб.</div>
-                    <button type="button" class="btn btn-secondary min-width-125 ">В корзину</button>
+                    <button type="button" class="btn btn-secondary min-width-125 js-cart-append" data-id="<?=$goods->id?>">В корзину</button>
                 </div>
             </div>
         </div>

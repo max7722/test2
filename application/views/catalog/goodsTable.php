@@ -6,7 +6,7 @@
  * Time: 17:08
  */
 /** @var \application\core\View $goodsRowView */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 ?>
 <table class="table table-hover table-vcenter">

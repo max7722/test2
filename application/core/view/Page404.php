@@ -11,6 +11,10 @@ namespace application\core\view;
 
 use application\core\View;
 
+/**
+ * Class Page404
+ * @package application\core\view
+ */
 class Page404 extends View
 {
     protected $template = 'page404.php';

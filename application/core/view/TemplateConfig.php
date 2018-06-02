@@ -9,7 +9,7 @@
 namespace application\core\view;
 
 
-class CodebaseConfig
+class TemplateConfig
 {
     private static $oInstance;
 
@@ -21,7 +21,7 @@ class CodebaseConfig
     //для codebase
     public $assets_folder;
 
-    public $sWebFolder = '/web';
+    public $sWebFolder;
 
     public $sMainPath;
 
@@ -30,12 +30,18 @@ class CodebaseConfig
     public static function getTemplateConfig()
     {
         if (!self::$oInstance) {
-            self::$oInstance = new CodebaseConfig();
+            self::$oInstance = new TemplateConfig();
             self::$oInstance->sMainPath = 'http://' . $_SERVER['HTTP_HOST'];
+            self::$oInstance->sWebFolder = self::WEB_FOLDER;
             self::$oInstance->assets_folder = self::$oInstance->sMainPath . self::ASSETS_FOLDER;
         }
 
         return self::$oInstance;
+    }
+
+    public static function getMainPath()
+    {
+        return self::getTemplateConfig()->sMainPath;
     }
 
     private function __construct()

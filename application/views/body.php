@@ -10,10 +10,10 @@
 /** @var \application\core\View $footer */
 /** @var \application\core\View $leftMenu */
 /** @var \application\core\View $head */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 ?>
-    <head>
+    <head class="no-focus">
         <?=$head->render()?>
     </head>
     <body>

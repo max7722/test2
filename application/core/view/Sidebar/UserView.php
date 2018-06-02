@@ -23,7 +23,7 @@ class UserView extends View
 
     protected function init()
     {
-        $this->aParams['user'] = null;
+        $this->aParams['user'] = \application\core\model\User::getUser()->getModel();
     }
 
     public function setUser($oUser)

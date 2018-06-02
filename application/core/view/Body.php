@@ -18,22 +18,23 @@ use application\core\View;
  * @property-read ContentBlock content
  * @property-read ContentBlock rightMenu
  * @property-read ContentBlock footer
+ * @property-read Head head
  */
 class Body extends View
 {
     protected $template = 'body.php';
 
     protected $aJsList = [
-        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.min.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/core/bootstrap.bundle.min.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.slimscroll.min.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.scrollLock.min.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.appear.min.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/core/jquery.countTo.min.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/core/js.cookie.min.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/codebase.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/plugins/chartjs/Chart.bundle.min.js',
-        CodebaseConfig::ASSETS_FOLDER . '/js/pages/be_pages_dashboard.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/core/jquery.min.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/core/bootstrap.bundle.min.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/core/jquery.slimscroll.min.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/core/jquery.scrollLock.min.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/core/jquery.appear.min.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/core/jquery.countTo.min.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/core/js.cookie.min.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/codebase.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/plugins/chartjs/Chart.bundle.min.js',
+        TemplateConfig::ASSETS_FOLDER . '/js/pages/be_pages_dashboard.js',
     ];
 
     function init()

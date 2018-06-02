@@ -18,6 +18,7 @@ use application\core\model\RecordPrototype;
  * @property int type
  * @property string phone
  * @property string address
+ * @property string mail
  */
 class User extends RecordPrototype
 {
@@ -28,7 +29,7 @@ class User extends RecordPrototype
 
     public static function fields()
     {
-        return ['id', 'login', 'password', 'type', 'phone', 'address'];
+        return ['id', 'login', 'password', 'type', 'phone', 'address', 'mail'];
     }
 
     /** @var Cart */

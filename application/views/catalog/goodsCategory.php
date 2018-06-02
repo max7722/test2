@@ -8,7 +8,7 @@
 
 /** @var \application\models\Category $category */
 /** @var \application\core\View[] $listViews */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 ?>
 
@@ -20,7 +20,10 @@
             <div class="row items-push">
                 <div class="col-md-4">
                     <div class="">
-                        <img class="img-fluid" src="<?=$cb->sMainPath . $cb->sWebFolder . '/' . $category->image?>" alt="">
+                        <img class="img-fluid" src="
+                        <? if ($category->image): ?><?=$cb->sMainPath . $cb->sWebFolder . '/' . $category->image?>
+                        <? else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-category.jpg'?>
+                        <? endif; ?>" alt="">
                     </div>
                 </div>
                 <div class="col-md-8">

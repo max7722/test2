@@ -14,6 +14,8 @@ use application\core\Controller;
 class Main extends Controller
 {
     public function actionIndex() {
+        $this->oContent->head->title = 'Главная';
+
         $this->oContent->render();
     }
 }

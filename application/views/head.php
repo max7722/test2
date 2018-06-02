@@ -7,7 +7,7 @@
  */
 
 /** @var string $title */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 /** @var string[] $cssList */
 
 ?>
@@ -21,6 +21,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="<?=$cb->assets_folder?>/img/favicons/apple-touch-icon-180x180.png">
 
 <link rel="stylesheet" id="css-main" href="<?=$cb->assets_folder?>/css/codebase.min.css">
+<link rel="stylesheet" id="css-main" href="<?=$cb->assets_folder?>/js/plugins/sweetalert2/sweetalert2.min.css">
 <? if (!empty($cssList)): ?>
     <? foreach ($cssList as $sPath): ?>
         <link rel="stylesheet" href='<?=$sPath?>'>

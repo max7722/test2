@@ -14,7 +14,7 @@ use application\core\Route;
 use application\core\view\Catalog\GoodsCategory;
 use application\core\view\Catalog\GoodsTable;
 use application\core\view\Catalog\GoodsTableRow;
-use application\core\view\GoodsDetail;
+use application\core\view\Catalog\GoodsDetail;
 use application\core\view\PaginationView;
 use application\models\Category;
 use application\models\Goods;
@@ -26,14 +26,16 @@ class Catalog extends Controller
         $this->oContent->render();
     }
 
-    public function actionGoods($aParam = [])
+    public function actionGoods()
     {
-        if (count($aParam) !== 1) {
+        $aRoutes = $this->getRoutes();
+
+        if (count($aRoutes) !== 1) {
             Route::getPage404();
             exit;
         }
 
-        $id = array_shift($aParam);
+        $id = array_shift($aRoutes);
         if (!is_numeric($id) || $id <= 0) {
             Route::getPage404();
             exit;
@@ -54,17 +56,18 @@ class Catalog extends Controller
         $this->oContent->render();
     }
 
-    public function actionCategory($aParam = [])
+    public function actionCategory()
     {
+        $aRoutes = $this->getRoutes();
         $iCountOnPage = 10;
 
-        if (count($aParam) > 2) {
+        if (count($aRoutes) > 2) {
             Route::getPage404();
             exit;
         }
 
-        $id = array_shift($aParam);
-        $iPage = array_shift($aParam);
+        $id = array_shift($aRoutes);
+        $iPage = array_shift($aRoutes);
 
         if (!is_numeric($id) || $id <= 0) {
             Route::getPage404();

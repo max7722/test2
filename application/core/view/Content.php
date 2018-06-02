@@ -10,13 +10,16 @@ namespace application\core\view;
 
 use application\core\View;
 
+/**
+ * Class Content
+ * @package application\core\view
+ */
 class Content extends View
 {
     protected $template = 'content.php';
 
     protected function init()
     {
-        // TODO: Implement init() method.
     }
 
 }

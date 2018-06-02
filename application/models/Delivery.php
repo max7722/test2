@@ -11,24 +11,19 @@ namespace application\models;
 use application\core\model\RecordPrototype;
 
 /**
- * Class OrderGoods
+ * Class Delivery
  * @property int id
- * @property int id_user
- * @property int id_goods
- * @property int id_order
  * @property string name
- * @property int count
- * @property string price
  */
-class OrderGoods extends RecordPrototype
+class Delivery extends RecordPrototype
 {
     public static function tableName()
     {
-        return 'order_goods';
+        return 'delivery';
     }
 
     public static function fields()
     {
-        return ['id', 'id_order', 'id_goods', 'name', 'count', 'price'];
+        return ['id', 'name'];
     }
 }

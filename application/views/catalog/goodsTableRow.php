@@ -7,13 +7,16 @@
  */
 
 /** @var \application\models\Goods [] $goodsList */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 if (!empty($goodsList)) {
     foreach ($goodsList as $oGoods) {
         ?>
         <tr>
-            <th class="text-center" scope="row"><img class="img-avatar" src="<?=$cb->sMainPath . $cb->sWebFolder . '/'?><?=$oGoods->image?>"></th>
+            <th class="text-center" scope="row"><img class="img-avatar" src="
+                        <? if ($oGoods->image): ?><?=$cb->sMainPath . $cb->sWebFolder . '/' . $oGoods->image?>
+                        <? else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
+                        <? endif; ?>"></th>
             <td>
                 <a class="font-size-h5 font-w600" href="<?=$cb->sMainPath . '/catalog/goods/' . $oGoods->id?>"><?=$oGoods->name?></a>
                 <div class="text-muted my-5"><?=$oGoods->description?></div>
