@@ -25,6 +25,7 @@ class Head extends View
     protected $css = [
 //        CodebaseConfig::ASSETS_FOLDER . '/css/codebase.min.css',
         TemplateConfig::ASSETS_FOLDER . '/js/plugins/magnific-popup/magnific-popup.min.css',
+        TemplateConfig::WEB_FOLDER . '/css/style.css'
     ];
 
     protected function init()
@@ -37,6 +38,11 @@ class Head extends View
     protected function setTitle($sTitle)
     {
         $this->aParams['title'] = $sTitle;
+    }
+
+    public function addCss(array $aListCss)
+    {
+        $this->aParams['cssList'] = array_merge($this->aParams['cssList'], $aListCss);
     }
 
 

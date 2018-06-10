@@ -12,7 +12,6 @@ namespace application\controllers;
 use application\core\Controller;
 use application\core\model\User;
 use application\core\Route;
-use application\core\view\Page404;
 use application\models\RegUser;
 use application\models\User as ModelUser;
 use application\core\view\Answer;

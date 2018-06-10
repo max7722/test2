@@ -16,13 +16,11 @@
         <div class="block-content">
             <h1><?=$goods->name?></h1>
             <div class="row items-push">
-                <div class="col-md-4">
-                    <div class="">
-                        <img class="img-fluid" src="
-                        <? if ($goods->image): ?><?=$cb->sMainPath . $cb->sWebFolder . '/' . $goods->image?>
+                <div class="col-md-4" align="center"">
+                        <img class="img-fluid" style="max-height: 250px;" src="
+                        <? if ($goods->image): ?><?='/' . $goods->image?>
                         <? else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
                         <? endif; ?>" alt="">
-                    </div>
                 </div>
                 <div class="col-md-6">
                     <? if ($goods->categories): ?>

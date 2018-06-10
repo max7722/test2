@@ -56,7 +56,7 @@ class PaginationView extends View
         $this->aParams['leftMaxCount'] = $iValue;
     }
 
-    public function initRender()
+    protected function initRender()
     {
         $iCount = $this->aParams['count'];
         if ($iCount > $this->aParams['maxCount']) {

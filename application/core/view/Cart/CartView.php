@@ -43,7 +43,7 @@ class CartView extends View
         $this->aParams['viewRow'] = $oView;
     }
 
-    public function initRender()
+    protected function initRender()
     {
         $this->aParams['active'] = Cart::getCart()->getCount();
 

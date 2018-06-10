@@ -16,6 +16,14 @@ class Footer extends View
 
     protected function init()
     {
-        // TODO: Implement init() method.
+        $this->aParams['items'] = [];
+    }
+
+    /**
+     * @param View $mItem
+     */
+    public function addItem($mItem)
+    {
+        $this->aParams[] = $mItem;
     }
 }

@@ -8,6 +8,7 @@
 
 namespace application\core;
 
+use application\core\view\Footer\Footer;
 use application\core\view\TemplateConfig;
 use application\models\Category;
 
@@ -34,6 +35,7 @@ class Controller
 
         $oSidebar = $this->getSidebar();
         $oHeader = $this->getHeader();
+        $oFooter = $this->getFooter();
 
         $this->oContent->header->addItem($oHeader);
         $this->oContent->leftMenu->addItem($oSidebar);
@@ -75,6 +77,11 @@ class Controller
         $oHeaderView = new view\Header\HeaderView();
 
         return $oHeaderView;
+    }
+
+    private function getFooter()
+    {
+        return new Footer();
     }
 
     /**

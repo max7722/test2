@@ -10,6 +10,7 @@ namespace application\models;
 
 use application\core\model\DataBase;
 use application\core\model\RecordPrototype;
+use application\core\view\TemplateConfig;
 
 /**
  * Class Goods

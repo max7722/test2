@@ -8,7 +8,7 @@
 /** @var \application\core\View [] $items */
 
 if (!empty($items)): ?>
-    <main id="main-container">
+    <main id="main-container" style="overflow: hidden;">
         <? foreach ($items as $item): ?>
             <?=$item->render()?>
         <? endforeach; ?>

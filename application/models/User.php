@@ -19,6 +19,8 @@ use application\core\model\RecordPrototype;
  * @property string phone
  * @property string address
  * @property string mail
+ * @property \application\core\model\Cart cart
+ * @property Order[] orders
  */
 class User extends RecordPrototype
 {

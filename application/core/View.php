@@ -74,7 +74,7 @@ abstract class View
      */
     abstract protected function init();
 
-    public function initRender()
+    protected function initRender()
     {
         //точно здесь?
         $oTemplate = TemplateConfig::getTemplateConfig();
