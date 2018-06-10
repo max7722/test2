@@ -9,7 +9,7 @@
 namespace application\controllers;
 
 
-use application\core\Controller;
+use application\core\PageController;
 use application\core\model\Cart as ModelCart;
 use application\core\view\Cart\CartView;
 use application\core\view\Cart\Form;
@@ -19,7 +19,7 @@ use application\models\Delivery;
 use application\models\Goods;
 use application\models\Order;
 
-class Cart extends Controller
+class Cart extends PageController
 {
     public function actionIndex()
     {

@@ -9,7 +9,7 @@
 namespace application\controllers;
 
 
-use application\core\Controller;
+use application\core\PageController;
 use application\core\view\Gallery\GoodstList;
 use application\core\view\Gallery\ImageList;
 use application\core\view\Gallery\Slider;
@@ -18,7 +18,7 @@ use application\core\view\main\MainView;
 use application\core\view\TemplateConfig;
 use application\models\Goods;
 
-class Main extends Controller
+class Main extends PageController
 {
     public function actionIndex() {
         $this->oContent->head->title = 'Главная';

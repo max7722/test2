@@ -16,6 +16,7 @@ class User
 
     const TYPE_USER = 2;
 
+    /** @var ModelUser */
     protected $oUser;
 
     private static $oInstance;
@@ -53,6 +54,20 @@ class User
         }
 
         return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isAdmin()
+    {
+        if (self::isLogin()) {
+            if (!empty(self::getUser()->oUser->type == self::TYPE_ADMIN)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

@@ -9,7 +9,7 @@
 namespace application\controllers;
 
 
-use application\core\Controller;
+use application\core\PageController;
 use application\core\Route;
 use application\core\view\Catalog\GoodsCategory;
 use application\core\view\Catalog\GoodsTable;
@@ -19,7 +19,7 @@ use application\core\view\PaginationView;
 use application\models\Category;
 use application\models\Goods;
 
-class Catalog extends Controller
+class Catalog extends PageController
 {
     public function actionIndex()
     {

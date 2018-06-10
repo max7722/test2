@@ -9,10 +9,10 @@
 namespace application\controllers;
 
 
-use application\core\Controller;
+use application\core\PageController;
 use application\core\view\Profile\Profile as ViewProfile;
 
-class Profile extends Controller
+class Profile extends PageController
 {
     public function actionIndex()
     {

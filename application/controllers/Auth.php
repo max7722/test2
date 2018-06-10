@@ -9,7 +9,7 @@
 namespace application\controllers;
 
 
-use application\core\Controller;
+use application\core\PageController;
 use application\core\model\User;
 use application\core\Route;
 use application\models\RegUser;
@@ -20,7 +20,7 @@ use application\core\view\Auth\RegForm;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
-class Auth extends Controller
+class Auth extends PageController
 {
     public function actionIndex()
     {

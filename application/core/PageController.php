@@ -12,16 +12,8 @@ use application\core\view\Footer\Footer;
 use application\core\view\TemplateConfig;
 use application\models\Category;
 
-class Controller
+class PageController extends BaseController
 {
-    public $oModel;
-
-    /** @var view\Body */
-    public $oContent;
-
-    private $aPostData = [];
-
-    private $aRoutes = [];
 
     /**
      * Controller constructor.
@@ -75,6 +67,11 @@ class Controller
     private function getHeader()
     {
         $oHeaderView = new view\Header\HeaderView();
+        $oCart = new view\Header\CartView();
+        $oButtonSidebar = new view\Header\SidebarButton();
+
+        $oHeaderView->addItem($oButtonSidebar);
+        $oHeaderView->addItem($oCart);
 
         return $oHeaderView;
     }
@@ -82,46 +79,5 @@ class Controller
     private function getFooter()
     {
         return new Footer();
-    }
-
-    /**
-     * @param string $sVal
-     * @return array|mixed
-     */
-    final protected function getPostData($sVal = '')
-    {
-        if ($sVal) {
-            if (isset($this->aPostData[$sVal])) {
-                return $this->aPostData[$sVal];
-            }
-
-            return false;
-        }
-
-        return $this->aPostData;
-    }
-
-    /**
-     * @param $aData
-     */
-    final public function setPostData($aData)
-    {
-        $this->aPostData = $aData;
-    }
-
-    /**
-     * @param $aRoutes
-     */
-    final public function setRoutes($aRoutes)
-    {
-        $this->aRoutes = $aRoutes;
-    }
-
-    /**
-     * @return array
-     */
-    final protected function getRoutes()
-    {
-        return $this->aRoutes;
     }
 }
