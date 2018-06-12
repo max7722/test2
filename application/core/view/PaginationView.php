@@ -16,7 +16,7 @@ use application\core\View;
  * @package application\core\view
  * @property int count
  * @property int active
- * @property int catalog
+ * @property int id
  */
 class PaginationView extends View
 {
@@ -28,12 +28,13 @@ class PaginationView extends View
         $this->aParams['active'] = 1;
         $this->aParams['maxCount'] = 5;
         $this->aParams['leftMaxCount'] = 3;
-        $this->aParams['catalog'] = '';
+        $this->aParams['id'] = '';
+        $this->aParams['path'] = '';
     }
 
-    protected function setCatalog($iValue)
+    protected function setId($iValue)
     {
-        $this->aParams['catalog'] = $iValue;
+        $this->aParams['id'] = $iValue;
     }
 
     protected function setCount($iCount)
@@ -54,6 +55,11 @@ class PaginationView extends View
     protected function setLeftMaxCount($iValue)
     {
         $this->aParams['leftMaxCount'] = $iValue;
+    }
+
+    protected function setPath($value)
+    {
+        $this->aParams['path'] = $value;
     }
 
     protected function initRender()

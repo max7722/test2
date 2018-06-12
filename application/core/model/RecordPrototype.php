@@ -244,9 +244,9 @@ abstract class RecordPrototype
 
         $aFields = array_keys($this->aAttribute);
         $aValues = array_values($this->aAttribute);
-        $sFields = implode(' = ?, ', $aFields) . ' = ?';
+        $sFields = '`' . implode('` = ?, `', $aFields) . '` = ?';
 
-        $oQuery = $db->prepare('UPDATE ' . static::tableName() . ' SET ' . $sFields .
+        $oQuery = $db->prepare('UPDATE `' . static::tableName() . '` SET ' . $sFields .
             ' WHERE id = ' . $this->aOldAttribute['id']);
 
         if (!$oQuery->execute($aValues)) {

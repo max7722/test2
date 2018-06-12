@@ -9,6 +9,7 @@
 namespace application\controllers;
 
 
+use application\core\model\User;
 use application\core\PageController;
 use application\core\model\Cart as ModelCart;
 use application\core\view\Cart\CartView;
@@ -24,6 +25,7 @@ class Cart extends PageController
     public function actionIndex()
     {
         $oCartView = new CartView();
+        $oCartView->title = 'Корзина';
         $oCartView->viewRow = new GoodsRow();
 
         $this->oContent->content->addItem($oCartView);
@@ -60,6 +62,10 @@ class Cart extends PageController
         $oOrder->datetime = date("Y-m-d H:i:s");
         $oOrder->status = 0;
         $oOrder->id_user = 0;
+        if (User::isLogin()) {
+            $oOrder->id_user = User::getUser()->getModel()->id;
+        }
+
         $oOrder->phone = '';//todo
 
         var_dump($oOrder->save());

@@ -23,7 +23,8 @@ class Catalog extends PageController
 {
     public function actionIndex()
     {
-        $this->oContent->render();
+        Route::getPage404();
+        exit;
     }
 
     public function actionGoods()
@@ -99,7 +100,7 @@ class Catalog extends PageController
         $oPagination = new PaginationView();
         $oPagination->count = intval(count($oCategory->goods) / $iCountOnPage);
         $oPagination->active = $iPage;
-        $oPagination->catalog = $id;
+        $oPagination->path = '/catalog/category/' . $id . '/';
 
         $oGoodsCategoryView = new GoodsCategory();
         $oGoodsCategoryView->category = $oCategory;

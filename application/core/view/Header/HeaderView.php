@@ -15,7 +15,7 @@ use application\core\View;
 /**
  * Class HeaderView
  * @package application\core\view\Header
- * @property int countItemInCart
+ * @property View[] items
  */
 class HeaderView extends View
 {
@@ -23,11 +23,14 @@ class HeaderView extends View
 
     protected function init()
     {
-        $this->aParams['countItemInCart'] = Cart::getCart()->getCount();
+        $this->aParams['items'] = [];
     }
 
-    protected function setCountItemInCart($iValue)
+    /**
+     * @param View $oValue
+     */
+    public function addItem($oValue)
     {
-        $this->aParams['countItemInCart'] = $iValue;
+        $this->aParams['items'][] = $oValue;
     }
 }

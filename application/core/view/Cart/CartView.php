@@ -18,6 +18,9 @@ use application\core\view\TemplateConfig;
  * @package application\core\view\Cart
  * @property View viewRow
  * @property int price
+ * @property string title
+ * @property int id
+ * @property int complete
  */
 class CartView extends View
 {
@@ -30,6 +33,9 @@ class CartView extends View
     protected function init()
     {
         $this->aParams['viewRow'] = '';
+        $this->aParams['title'] = '';
+        $this->aParams['id'] = '';
+        $this->aParams['complete'] = '';
         $this->aParams['price'] = Cart::getCart()->getAllPrice();
     }
 
@@ -41,6 +47,21 @@ class CartView extends View
     protected function setViewRow($oView)
     {
         $this->aParams['viewRow'] = $oView;
+    }
+
+    protected function setTitle($iValue)
+    {
+        $this->aParams['title'] = $iValue;
+    }
+
+    protected function setId($iValue)
+    {
+        $this->aParams['id'] = $iValue;
+    }
+
+    protected function setComplete($iValue)
+    {
+        $this->aParams['complete'] = $iValue;
     }
 
     protected function initRender()

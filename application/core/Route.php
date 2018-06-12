@@ -90,6 +90,7 @@ class Route
         $sController = '';
         $sComand = '';
         $aData = [];
+        $bAdmin = 0;
 
         if (!empty($_POST['controller'])) {
             $sController = $_POST['controller'];
@@ -101,6 +102,14 @@ class Route
 
         if (!empty($_POST['data'])) {
             $aData = $_POST['data'];
+        }
+
+        if (!empty($_POST['adm'])) {
+            $bAdmin = 1;
+        }
+
+        if ($bAdmin) {
+            self::$sPathController = self::PATH_ADM_CONTROLLER;
         }
 
         $sFullControllerName = self::$sPathController . $sController;

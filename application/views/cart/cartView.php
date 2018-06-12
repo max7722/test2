@@ -9,13 +9,14 @@
 /** @var int $price */
 /** @var \application\core\View $viewRow */
 /** @var int $active */
+/** @var string $title */
 
 ?>
 
 <div class="content">
     <div class="block">
         <div class="block-content">
-            <h1>Корзина</h1>
+            <h1><?= $title ?></h1>
                 <table class="table table-hover table-vcenter">
                     <?=$viewRow->render()?>
                 </table>

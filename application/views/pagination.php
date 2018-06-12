@@ -13,9 +13,10 @@
 /** @var int $midlePagin */
 /** @var int $leftButtonDisable */
 /** @var int $rightButtonDisable */
-/** @var int $catalog */
+/** @var int $id */
+/** @var string $path */
 
-$sPath = 'http://shop.my/catalog/category/' . $catalog . '/';
+$sPath = $path;
 ?>
 <nav>
     <ul class="pagination justify-content-end">

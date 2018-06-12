@@ -6,7 +6,7 @@
  * Time: 20:11
  */
 
-namespace application\core\view\main;
+namespace application\core\view\Main;
 
 
 use application\core\View;

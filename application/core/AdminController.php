@@ -10,6 +10,7 @@ namespace application\core;
 
 
 use application\core\view\Footer\Footer;
+use application\core\view\Sidebar\MenuItem;
 use application\core\view\TemplateConfig;
 use application\models\Category;
 
@@ -48,18 +49,26 @@ class AdminController extends BaseController
         $oSidebar->head->firstHalfTitle = 'Быт';
         $oSidebar->head->secondHalfTitle = 'Тех';
 
-        $oGoodsSidebarView = new view\Sidebar\SubMenuView();
-        $oGoodsSidebarView->title = 'Товары';
+        $oGoodsView = new MenuItem();
+        $oGoodsView->title = 'Товары';
+        $oGoodsView->path = '/admin/goods';
 
-        $aCategores = Category::findAll();
-        foreach ($aCategores as $oCategory) {
-            $oCategorySidebarView = new view\Sidebar\MenuItem();
-            $oCategorySidebarView->title = $oCategory->name;
-            $oCategorySidebarView->path = TemplateConfig::getMainPath() . '/catalog/category/' . $oCategory->id;
-            $oGoodsSidebarView->addItems($oCategorySidebarView);
-        }
+        $oCategoryView = new MenuItem();
+        $oCategoryView->title = 'Категории';
+        $oCategoryView->path = '/admin/category';
 
-        $oSidebar->menu->addItems($oGoodsSidebarView);
+        $oOrderView = new MenuItem();
+        $oOrderView->title = 'Заказы';
+        $oOrderView->path = '/admin/order';
+
+        $oUserView = new MenuItem();
+        $oUserView->title = 'Пользователи';
+        $oUserView->path = '/admin/user';
+
+        $oSidebar->menu->addItems($oGoodsView);
+        $oSidebar->menu->addItems($oCategoryView);
+        $oSidebar->menu->addItems($oOrderView);
+        $oSidebar->menu->addItems($oUserView);
 
         return $oSidebar;
     }
@@ -67,6 +76,9 @@ class AdminController extends BaseController
     private function getHeader()
     {
         $oHeaderView = new view\Header\HeaderView();
+
+        $oButtonSidebar = new view\Header\SidebarButton();
+        $oHeaderView->addItem($oButtonSidebar);
 
         return $oHeaderView;
     }
