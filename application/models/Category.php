@@ -88,4 +88,21 @@ class Category extends RecordPrototype
 
         return False;
     }
+
+    public function getLittleDescription()
+    {
+        if (strlen($this->description) > 40) {
+            return strip_tags(substr($this->description, 0, 37) . '...');
+        }
+
+        return strip_tags($this->description);
+    }
+
+    /**
+     * @return Goods[]
+     */
+    public function getDirtyGoods()
+    {
+        return CategoryGoods::getDirtyGoods($this->id);
+    }
 }

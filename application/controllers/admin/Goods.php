@@ -77,15 +77,15 @@ class Goods extends AdminController
             exit;
         }
 
-        if (!is_numeric($idGoods)) {
-            Route::getPage404();
-            exit;
-        }
+//        if (isset($idGoods) && !is_numeric($idGoods)) {
+//            Route::getPage404();
+//            exit;
+//        }
 
         if ($idGoods) {
             $oGoods = \application\models\Goods::findOne($idGoods);
         } else {
-            if (is_numeric($idGoods)) {
+            if (!empty($idGoods)) {
                 Route::getPage404();
                 exit;
             }
@@ -95,7 +95,6 @@ class Goods extends AdminController
             Route::getPage404();
             exit;
         }
-
         $aData = $this->getPostData();
         if (!empty($aData)) {
             if (!empty($aData['delete'])) {
@@ -165,6 +164,24 @@ class Goods extends AdminController
         $this->oContent->content->addItem($oEditor);
 
         $this->oContent->render();
+
+        $aFile = $_FILES['image'];
+        $idGoods = $this->getPostData('id');
+        $oGoods = \application\models\Goods::findOne($idGoods);
+
+        if (!empty($aFile['name'])) {
+
+            $sPath = $aFile["tmp_name"];
+            $name = basename($aFile["name"]);
+            $sPathUpload = 'web/images/category/' . $idGoods . $name;
+            move_uploaded_file($sPath, $sPathUpload);
+
+            $oGoods->image = $sPathUpload;
+            $oGoods->save();
+        }
+
+        header('Location: /admin/goods/show/' . $oGoods->id);
+        exit;
     }
 
 }
