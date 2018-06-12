@@ -21,6 +21,9 @@ use application\core\view\TemplateConfig;
  * @property string description
  * @property string price
  * @property string image
+ * @property int hit
+ * @property int new
+ * @property int luck
  * @property-read Category[] categories
  */
 class Goods extends RecordPrototype
@@ -32,7 +35,7 @@ class Goods extends RecordPrototype
 
     public static function fields()
     {
-        return ['id', 'name', 'active', 'description', 'price', 'image'];
+        return ['id', 'name', 'active', 'description', 'price', 'image', 'hit', 'new', 'luck'];
     }
 
     protected $aListCategory;
@@ -58,5 +61,26 @@ class Goods extends RecordPrototype
         }
 
         return $this->aListCategory;
+    }
+
+    public function delete()
+    {
+        $sql = 'DELETE FROM `category_goods` WHERE id_goods = ?';
+
+        $db = DataBase::getInstance();
+        $oQuery = $db->prepare($sql);
+
+        $oQuery->execute([$this->id]);
+
+        return parent::delete();
+    }
+
+    public function getLittleDescription()
+    {
+        if (strlen($this->description) > 40) {
+            return strip_tags(substr($this->description, 0, 37) . '...');
+        }
+
+        return strip_tags($this->description);
     }
 }

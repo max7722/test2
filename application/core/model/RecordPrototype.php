@@ -116,7 +116,11 @@ abstract class RecordPrototype
             return null;
         }
 
-        $oObject = new static($oQuery->fetch());
+        $res = $oQuery->fetch();
+        if (!$res) {
+            return null;
+        }
+        $oObject = new static($res);
 
         return $oObject;
     }
@@ -250,6 +254,7 @@ abstract class RecordPrototype
             ' WHERE id = ' . $this->aOldAttribute['id']);
 
         if (!$oQuery->execute($aValues)) {
+            var_dump($oQuery->queryString, $oQuery->errorInfo());
             return false;
         }
 

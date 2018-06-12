@@ -19,7 +19,7 @@ if (!empty($goodsList)) {
                         <? endif; ?>"></th>
             <td>
                 <a class="font-size-h5 font-w600" href="<?=$cb->sMainPath . '/catalog/goods/' . $oGoods->id?>"><?=$oGoods->name?></a>
-                <div class="text-muted my-5"><?=$oGoods->description?></div>
+                <div class="text-muted my-5"><?=$oGoods->getLittleDescription()?></div>
             </td>
             <td class="d-none d-sm-table-cell">
                 <span class="badge badge-primary"><?=$oGoods->price?> руб.</span>
