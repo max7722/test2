@@ -113,7 +113,7 @@ class Main extends PageController
         $oSlider->setTemplate(Slider::TMP_CAROUSEL);
         $oSlider->view = $oGoodslist;
         $oSlider->multiple = 1;
-        $oSlider->title = 'Новые товары';
+        $oSlider->title = 'Лучший выбор';
 
         return $oSlider;
     }

@@ -10,8 +10,21 @@ namespace application\controllers\admin;
 
 
 use application\core\AdminController;
+use application\core\view\User\UserList;
 
 class User extends AdminController
 {
+    public function actionIndex()
+    {
+        $this->oContent->head->title = 'Список пользователей';
 
+        $aUser = \application\models\User::findAll();
+
+        $oUserList = new UserList();
+        $oUserList->userList = $aUser;
+
+        $this->oContent->content->addItem($oUserList);
+
+        $this->oContent->render();
+    }
 }

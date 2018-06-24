@@ -24,6 +24,8 @@ class Auth extends PageController
 {
     public function actionIndex()
     {
+        $this->oContent->head->title = 'Авторизация';
+
         $sUserName = $this->getPostData('val-username');
         $sPassword = $this->getPostData('val-password');
 
@@ -52,6 +54,9 @@ class Auth extends PageController
 
     public function actionRegister()
     {
+
+        $this->oContent->head->title = 'Регистрация';
+
         $sName = $this->getPostData('val-username');
         $sPassword = $this->getPostData('val-password');
 //        $sRetryPassword = $this->getPostData('val-confirm-password');
@@ -121,6 +126,9 @@ class Auth extends PageController
 
     public function actionConfirm()
     {
+
+        $this->oContent->head->title = 'Подтверждение';
+
         $sHash = $this->getRoutes()[0];
 
         if (!empty($sHash)) {

@@ -24,6 +24,8 @@ class Cart extends PageController
 {
     public function actionIndex()
     {
+        $this->oContent->head->title = 'Корзина';
+
         $oCartView = new CartView();
         $oCartView->title = 'Корзина';
         $oCartView->viewRow = new GoodsRow();
@@ -35,6 +37,8 @@ class Cart extends PageController
 
     public function actionCheckout()
     {
+        $this->oContent->head->title = 'Форма заказа';
+
         $oForm = new Form();
 
         $aDelivery = Delivery::findAll();
@@ -47,6 +51,9 @@ class Cart extends PageController
 
     public function actionConfirm()
     {
+
+        $this->oContent->head->title = 'Заказ прошел успешно';
+
         $aPost = $this->getPostData();
 
         if (empty($aPost['val-confirm'])) {

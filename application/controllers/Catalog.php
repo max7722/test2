@@ -49,6 +49,9 @@ class Catalog extends PageController
             exit;
         }
 
+
+        $this->oContent->head->title = $oGoods->name;
+
         $oGoodsView = new GoodsDetail();
         $oGoodsView->goods = $oGoods;
 
@@ -76,7 +79,7 @@ class Catalog extends PageController
         }
 
         if (empty($iPage)) {
-            $iPage = 1;
+            $iPage = 0;
         }
 
         if (!is_numeric($iPage) || $iPage < 0) {
@@ -84,7 +87,11 @@ class Catalog extends PageController
             exit;
         }
 
+
+
         $oCategory = Category::findOne($id);
+
+        $this->oContent->head->title = $oCategory->name;
 
         if (!$oCategory) {
             Route::getPage404();

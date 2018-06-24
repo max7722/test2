@@ -15,6 +15,10 @@ class Main extends AdminController
 {
     public function actionIndex()
     {
+        $this->oContent->head->title = 'Административный режим';
+
+        $this->oContent->content->addItem((new \application\core\view\admin\Main()));
+
         $this->oContent->render();
     }
 }

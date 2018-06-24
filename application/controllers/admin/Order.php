@@ -23,11 +23,15 @@ class Order extends AdminController
 {
     public function actionIndex()
     {
+        $this->oContent->head->title = 'Список закаов';
+
         $this->actionList();
     }
 
     public function actionList()
     {
+        $this->oContent->head->title = 'Список закаов';
+
         $aRoute = $this->getRoutes();
         $iPage = array_shift($aRoute);
 
@@ -61,6 +65,8 @@ class Order extends AdminController
 
     public function actionShow()
     {
+        $this->oContent->head->title = 'Редактор заказа';
+
         $aRoute = $this->getRoutes();
         $idOrder = array_shift($aRoute);
 

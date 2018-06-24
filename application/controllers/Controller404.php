@@ -16,6 +16,8 @@ class Controller404 extends PageController
 {
     public function actionIndex()
     {
+        $this->oContent->head->title = '404';
+
         $this->oContent->content->addItem(new Page404());
 
         $this->oContent->render();

@@ -20,11 +20,15 @@ class Goods extends AdminController
 {
     public function actionIndex()
     {
+        $this->oContent->head->title = 'Список товаров';
+
         $this->actionList();
     }
 
     public function actionList()
     {
+        $this->oContent->head->title = 'Список товаров';
+
         $aRoutes = $this->getRoutes();
         $iCountOnPage = 10;
 
@@ -36,7 +40,7 @@ class Goods extends AdminController
         $iPage = array_shift($aRoutes);
 
         if (empty($iPage)) {
-            $iPage = 1;
+            $iPage = 0;
         }
 
         if (!is_numeric($iPage) || $iPage < 0) {
@@ -69,6 +73,8 @@ class Goods extends AdminController
 
     public function actionShow()
     {
+        $this->oContent->head->title = 'Редактор товара';
+
         $aRoute = $this->getRoutes();
         $idGoods = array_shift($aRoute);
 
@@ -173,7 +179,7 @@ class Goods extends AdminController
 
             $sPath = $aFile["tmp_name"];
             $name = basename($aFile["name"]);
-            $sPathUpload = 'web/images/category/' . $idGoods . $name;
+            $sPathUpload = 'web/images/goods/' . $idGoods . $name;
             move_uploaded_file($sPath, $sPathUpload);
 
             $oGoods->image = $sPathUpload;

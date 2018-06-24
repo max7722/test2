@@ -21,11 +21,15 @@ class Category extends AdminController
 {
     public function actionIndex()
     {
+        $this->oContent->head->title = 'Список категорий';
+
         $this->actionList();
     }
 
     public function actionList()
     {
+        $this->oContent->head->title = 'Список категорий';
+
         $aRoutes = $this->getRoutes();
         $iCountOnPage = 10;
 
@@ -64,6 +68,8 @@ class Category extends AdminController
 
     public function actionShow()
     {
+        $this->oContent->head->title = 'Редактор категории';
+
         $aRoute = $this->getRoutes();
         $idCategory = array_shift($aRoute);
 
@@ -121,6 +127,8 @@ class Category extends AdminController
 
     public function actionGoods()
     {
+        $this->oContent->head->title = 'Список товаров';
+
         $aRoutes = $this->getRoutes();
 
         if (count($aRoutes) > 3) {
@@ -204,6 +212,8 @@ class Category extends AdminController
 
     public function actionEditgoods()
     {
+        $this->oContent->head->title = 'Список всех товаров';
+
         $aRoutes = $this->getRoutes();
 
         if (count($aRoutes) > 3) {
