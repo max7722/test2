@@ -9,6 +9,7 @@
 namespace application\core;
 
 use application\core\view\Footer\Footer;
+use application\core\view\Sidebar\MenuItem;
 use application\core\view\TemplateConfig;
 use application\models\Category;
 
@@ -51,15 +52,20 @@ class PageController extends BaseController
         $oGoodsSidebarView = new view\Sidebar\SubMenuView();
         $oGoodsSidebarView->title = 'Товары';
         
-        $aCategores = Category::findAll();
+        $aCategores = Category::findAll(['active' => 1]);
         foreach ($aCategores as $oCategory) {
             $oCategorySidebarView = new view\Sidebar\MenuItem();
             $oCategorySidebarView->title = $oCategory->name;
             $oCategorySidebarView->path = TemplateConfig::getMainPath() . '/catalog/category/' . $oCategory->id;
             $oGoodsSidebarView->addItems($oCategorySidebarView);
         }
+
+        $oAbout = new MenuItem();
+        $oAbout->title = 'О компании';
+        $oAbout->path = '/about';
         
         $oSidebar->menu->addItems($oGoodsSidebarView);
+        $oSidebar->menu->addItems($oAbout);
 
         return $oSidebar;
     }
