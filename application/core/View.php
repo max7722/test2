@@ -90,7 +90,7 @@ abstract class View
             $$paramName = $paramValue;
         }
 
-        include 'application\views\\' . $this->template;
+        include ROOT . '\application\views\\' . $this->template;
     }
 
     public function getTemplate() {

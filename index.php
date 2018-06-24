@@ -9,5 +9,5 @@
 
 ini_set('display_errors', 1);
 require_once 'vendor/autoload.php';
-
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 \application\core\Route::start();
