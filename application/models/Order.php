@@ -60,7 +60,7 @@ class Order extends RecordPrototype
             return $oUser->login;
         }
 
-        return 0;
+        return '';
     }
 
     /**
