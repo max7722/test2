@@ -16,9 +16,17 @@
         <div class="block-content">
             <h1>Список товаров</h1>
             <a href="/admin/goods/show">
-                <button>Добавить товар</button>
+                <button class="btn btn-sm btn-alt-primary" style="margin-bottom: 25px;">Добавить товар</button>
             </a>
             <table class="table table-hover table-vcenter">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Навзание</th>
+                        <th>Описание</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
                 <tbody>
                 <?=$goodsRowView->render()?>
                 </tbody>

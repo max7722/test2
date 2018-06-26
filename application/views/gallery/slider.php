@@ -9,14 +9,14 @@
 
 
 <div class="block">
-    <? if (!empty($title)): ?>
+    <?php if (!empty($title)): ?>
         <div class="block-header block-header-default">
             <h3 class="block-title"><?= $title ?></h3>
         </div>
-    <? endif; ?>
-    <? if (!empty($view)): ?>
-        <div class="js-slider slick-dotted-inner slick-dotted-white"<? if ($multiple): ?> data-slides-to-show="3" data-center-mode="true" <? endif; ?> data-dots="true" data-arrows="true">
+    <?php endif; ?>
+    <?php if (!empty($view)): ?>
+        <div class="js-slider slick-dotted-inner slick-dotted-white"<?php if ($multiple): ?> data-slides-to-show="3" data-center-mode="true" <?php endif; ?> data-dots="true" data-arrows="true">
             <?= $view->render() ?>
         </div>
-    <? endif; ?>
+    <?php endif; ?>
 </div>

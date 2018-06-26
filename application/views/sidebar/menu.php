@@ -13,10 +13,8 @@
 <!-- Side Navigation -->
 <div class="content-side content-side-full">
     <ul class="nav-main">
-        <?
-            foreach ($items as $item) {
-                echo $item->render();
-            }
-        ?>
+        <?php foreach ($items as $item): ?>
+            <?=$item->render();?>
+        <?php endforeach; ?>
     </ul>
 </div>

@@ -6,7 +6,7 @@
     <h2 class="content-heading">Личный кабинет</h2>
     <div class="block">
         <h4>Ваши заказы</h4>
-        <? if (!empty($orderList)): ?>
+        <?php if (!empty($orderList)): ?>
             <table class="table table-borderless table-striped">
                 <thead>
                 <tr>
@@ -17,14 +17,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <? foreach ($orderList as $oOrder): ?>
+                <?php foreach ($orderList as $oOrder): ?>
                     <tr>
                         <td>
-                            <? if ($oOrder->status): ?>
+                            <?php if ($oOrder->status): ?>
                                 <span class="badge badge-success">Обработан</span>
-                            <? else: ?>
+                            <?php else: ?>
                                 <span class="badge badge-warning">Не обработан</span>
-                            <? endif; ?>
+                            <?php endif; ?>
                         </td>
                         <td class="d-none d-sm-table-cell"><?= $oOrder->datetime ?></td>
                         <td class="d-none d-sm-table-cell"><?= $oOrder->getNameDelivery() ?></td>
@@ -32,11 +32,11 @@
                             <span class="text-black"><?= $oOrder->price ?></span>
                         </td>
                     </tr>
-                <? endforeach; ?>
+                <?php endforeach; ?>
                 </tbody>
             </table>
-        <? else: ?>
+        <?php else: ?>
             У вас нет заказов
-        <? endif; ?>
+        <?php endif; ?>
     </div>
 </div>

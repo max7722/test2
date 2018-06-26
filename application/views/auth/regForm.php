@@ -16,35 +16,35 @@
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label" for="val-username">Логин</label>
                         <div class="col-lg-12">
-                            <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Ваше имя" <? if ($name): ?>value="<?=$name?>" <? endif; ?>>
+                            <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Ваше имя" <?php if ($name): ?>value="<?=$name?>" <?php endif; ?>>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label" for="val-password">Парлоль</label>
                         <div class="col-lg-12">
-                            <input type="password" class="form-control valid" id="val-password" name="val-password" placeholder="Введите пароль" aria-describedby="val-password-error" aria-invalid="false" <? if ($password): ?>value="<?=$password?>" <? endif; ?>>
+                            <input type="password" class="form-control valid" id="val-password" name="val-password" placeholder="Введите пароль" aria-describedby="val-password-error" aria-invalid="false" <?php if ($password): ?>value="<?=$password?>" <?php endif; ?>>
                         </div>
                     </div>
 
 <!--                    <div class="form-group row">-->
 <!--                        <label class="col-lg-4 col-form-label" for="val-password">Парлоль</label>-->
 <!--                        <div class="col-lg-12">-->
-<!--                            <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" placeholder="Повторите пароль" --><?// if ($retryPassword): ?><!--value="--><?//=$retryPassword?><!--" --><?// endif; ?><!-->
+<!--                            <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" placeholder="Повторите пароль" --><?php// if ($retryPassword): ?><!--value="--><?php//=$retryPassword?><!--" --><?php// endif; ?><!-->
 <!--                        </div>-->
 <!--                    </div>-->
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label" for="val-email">Почта</label>
                         <div class="col-lg-12">
-                            <input type="text" class="form-control" id="val-email" name="val-email" placeholder="Email" <? if ($email): ?>value="<?=$email?>" <? endif; ?>>
+                            <input type="text" class="form-control" id="val-email" name="val-email" placeholder="Email" <?php if ($email): ?>value="<?=$email?>" <?php endif; ?>>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-lg-12">
                             <label class="css-control css-control-primary css-checkbox" for="val-terms">
-                                <input type="checkbox" class="css-control-input" id="val-terms" name="val-confirm" value="1" <? if ($agreed): ?> check <? endif; ?>>
+                                <input type="checkbox" class="css-control-input" id="val-terms" name="val-confirm" value="1" <?php if ($agreed): ?> check <?php endif; ?>>
                                 <span class="css-control-indicator"></span> Я согласен с политикой конфиденциальности<span class="text-danger">*</span>
                             </label>
                         </div>
@@ -56,11 +56,11 @@
                         </div>
                     </div>
 
-                    <? if ($error): ?>
+                    <?php if ($error): ?>
                         <div class="form-group row is-invalid">
                             <div class="invalid-feedback animated fadeInDown">Такой логин уже существует</div>
                         </div>
-                    <? endif; ?>
+                    <?php endif; ?>
                 </form>
             </div>
         </div>

@@ -26,19 +26,19 @@
                             <input type="text" class="form-control" id="val-email" name="val-email" placeholder="Email">
                         </div>
                     </div>
-                    <? if (!empty($deliveryList)): ?>
+                    <?php if (!empty($deliveryList)): ?>
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label" for="val-skill">Тип доставки <span class="text-danger">*</span></label>
                             <div class="col-lg-12">
                                 <select class="form-control" id="val-skill" name="val-delivery" aria-describedby="val-skill-error" aria-invalid="true">
                                     <option value="" disabled selected>Выберите тип доставки</option>
-                                    <? foreach ($deliveryList as $delivery): ?>
+                                    <?php foreach ($deliveryList as $delivery): ?>
                                         <option value="<?=$delivery->id?>"><?=$delivery->name?></option>
-                                    <? endforeach;?>
+                                    <?php endforeach;?>
                                 </select>
                             </div>
                         </div>
-                    <? endif; ?>
+                    <?php endif; ?>
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label" for="val-suggestions">Коментарий </label>
                         <div class="col-lg-12">

@@ -12,11 +12,11 @@
 ?>
 
 <div class="content-header">
-    <? if (!empty($items)): ?>
-        <? foreach ($items as $oView): ?>
+    <?php if (!empty($items)): ?>
+        <?php foreach ($items as $oView): ?>
             <?= $oView->render() ?>
-        <? endforeach; ?>
-    <? endif; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </div>
 
 

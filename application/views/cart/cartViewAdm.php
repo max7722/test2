@@ -22,8 +22,8 @@
             <div class="col-12">
                 <form method="post" action="/admin/order/show/<?= $id ?>">
                     <select name="select">
-                       <option value="0" <? if ($complete == 0): ?>selected<? endif; ?>>Выполнен</option>
-                       <option value="1" <? if ($complete == 1): ?>selected<? endif; ?>>Не выполнен</option>
+                       <option value="0" <?php if ($complete == 0): ?>selected<?php endif; ?>>Выполнен</option>
+                       <option value="1" <?php if ($complete == 1): ?>selected<?php endif; ?>>Не выполнен</option>
                     </select>
                     <input type="submit">
                 </form>
@@ -33,11 +33,11 @@
             </table>
 
             <div class="row items-push">
-                <? if (!empty($active)): ?>
+                <?php if (!empty($active)): ?>
                     <div class="col-md-4">
                         <h5>Общая сумма: <span><?=$price?></span> руб.</h5>
                     </div>
-                <? endif; ?>
+                <?php endif; ?>
             </div>
 
             <a href="/admin/order/list" class="link-effect">К списку</a>

@@ -22,7 +22,7 @@
                 </table>
 
                 <div class="row items-push">
-                    <? if (!empty($active)): ?>
+                    <?php if (!empty($active)): ?>
                         <div class="col-md-4">
                             <h5>Общая сумма: <span><?=$price?></span> руб.</h5>
                         </div>
@@ -34,7 +34,7 @@
                                 <button type="button" class="btn btn-primary min-width-125">Оформить заказ</button>
                             </a>
                         </div>
-                    <? endif; ?>
+                    <?php endif; ?>
                 </div>
         </div>
     </div>

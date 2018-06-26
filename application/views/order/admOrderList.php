@@ -5,7 +5,7 @@
     <h2 class="content-heading">Список заказов</h2>
     <div class="block block-rounded">
         <div class="block-content">
-            <? if (!empty($orderList)): ?>
+            <?php if (!empty($orderList)): ?>
                 <table class="table table-borderless table-striped">
                     <thead>
                     <tr>
@@ -18,33 +18,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <? foreach ($orderList as $oOrder): ?>
+                    <?php foreach ($orderList as $oOrder): ?>
                         <tr>
                             <td>
                                 <a class="font-w600" href="/admin/order/show/<?= $oOrder->id ?>"><?= $oOrder->id ?></a>
                             </td>
                             <td>
-                                <? if ($oOrder->status): ?>
+                                <?php if ($oOrder->status): ?>
                                     <span class="badge badge-success">Завершен</span>
-                                <? else: ?>
+                                <?php else: ?>
                                     <span class="badge badge-warning">Новый</span>
-                                <? endif; ?>
+                                <?php endif; ?>
                             </td>
                             <td class="d-none d-sm-table-cell"><?= $oOrder->datetime ?></td>
                             <td class="d-none d-sm-table-cell"><?= $oOrder->getNameDelivery() ?></td>
-                            <td class="d-none d-sm-table-cell">
-                                <a href="/admin/user/show/<?= $oOrder->id_user ?>"><?= $oOrder->getNameUser()?></a>
-                            </td>
+                            <td class="d-none d-sm-table-cell"><?= $oOrder->getNameUser()?></td>
                             <td class="text-right">
                                 <span class="text-black"><?= $oOrder->price ?></span>
                             </td>
                         </tr>
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
-            <? else: ?>
+            <?php else: ?>
                 Список заказов пуст
-            <? endif; ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>

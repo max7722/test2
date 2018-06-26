@@ -24,10 +24,10 @@
             <?=$footer->render()?>
         </div>
 
-        <? if (!empty($cb->getJs())): ?>
-            <? foreach ($cb->getJs() as $sPath): ?>
+        <?php if (!empty($cb->getJs())): ?>
+            <?php foreach ($cb->getJs() as $sPath): ?>
                 <script src="<?=$cb->sMainPath . $sPath?>"></script>
-            <? endforeach; ?>
-        <? endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </body>
 

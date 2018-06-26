@@ -12,7 +12,7 @@
 
 <div class="content-side content-side-full content-side-user px-10 align-parent" style="height: 165px">
 
-    <? if ($user): ?>
+    <?php if ($user): ?>
     <div class="sidebar-mini-visible-b align-v animated fadeIn">
         <img class="img-avatar img-avatar32" src="<?=$cb->assets_folder?>/img/avatars/avatar15.jpg" alt="">
     </div>
@@ -39,8 +39,11 @@
                     </a>
                 </li>
             </ul>
+        <?php if (\application\core\model\User::isAdmin()): ?>
+            <a class="img-link" href="/admin">Административный режим</a>
+        <?php endif; ?>
     </div>
-    <? else: ?>
+    <?php else: ?>
         <form action="/auth" method="post" novalidate="novalidate">
             <div class="form-group row">
                 <div class="col-lg-12">
@@ -59,5 +62,5 @@
                 </div>
             </div>
         </form>
-    <? endif; ?>
+    <?php endif; ?>
 </div>

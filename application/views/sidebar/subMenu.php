@@ -12,10 +12,8 @@
 <li>
     <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide"><?=$title?></span></a>
     <ul>
-        <?
-            foreach ($items as $item) {
-                echo $item->render();
-            }
-        ?>
+        <?php foreach ($items as $item): ?>
+            <?=$item->render();?>
+        <?php endforeach; ?>
     </ul>
 </li>

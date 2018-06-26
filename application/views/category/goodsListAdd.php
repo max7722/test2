@@ -13,8 +13,8 @@
                 </tr>
             </thead>
             <tbody>
-            <? if ($category->getDirtyGoods()): ?>
-                <? foreach ($category->getDirtyGoods() as $oGoods): ?>
+            <?php if ($category->getDirtyGoods()): ?>
+                <?php foreach ($category->getDirtyGoods() as $oGoods): ?>
                     <tr>
                         <th class="text-center" scope="row"><a href="/admin/goods/show/<?= $oGoods->id ?>"><?= $oGoods->id ?></a></th>
                         <td>
@@ -29,8 +29,8 @@
                             </form>
                         </td>
                     </tr>
-                <? endforeach; ?>
-            <? endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
             </tbody>
         </table>
     </div>

@@ -7,18 +7,18 @@
 ?>
 
 
-<? if (!empty($title)): ?>
+<?php if (!empty($title)): ?>
     <h2 class="content-heading"><?= $title ?></h2>
-<? endif; ?>
+<?php endif; ?>
 <div class="block">
     <div class="block-content" style="height: 250px;">
         <div class="row items-push">
-            <div class="col-12" >
-                <? if (!empty($view)): ?>
-                    <div class="js-slider slick-dotted-inner slick-dotted-white"<? if ($multiple): ?> data-slides-to-show="3" data-center-mode="true" <? endif; ?> data-dots="true" data-arrows="true">
+            <div class="col-12">
+                <?php if (!empty($view)): ?>
+                    <div class="js-slider slick-dotted-inner slick-dotted-white"<?php if ($multiple): ?> data-slides-to-show="3" data-center-mode="true" <?php endif; ?> data-dots="true" data-arrows="true">
                         <?= $view->render() ?>
                     </div>
-                <? endif; ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>

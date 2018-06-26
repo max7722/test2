@@ -10,16 +10,16 @@
 /** @var \application\core\view\TemplateConfig $cb */
 
 if (!empty($cartItems)): ?>
-    <? foreach ($cartItems as $cartItem): ?>
-        <?
+    <?php foreach ($cartItems as $cartItem): ?>
+        <?php
             /** @var \application\models\Goods $oGoods */
             $oGoods = $cartItem['item'];
         ?>
         <tr>
             <th class="text-center" scope="row"><img class="img-avatar" src="
-                        <? if ($oGoods->image): ?><?='/' . $oGoods->image?>
-                        <? else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
-                        <? endif; ?>"></th>
+                        <?php if ($oGoods->image): ?><?='/' . $oGoods->image?>
+                        <?php else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
+                        <?php endif; ?>"></th>
             <td>
                 <a class="font-size-h5 font-w600" href="<?=$cb->sMainPath . '/catalog/goods/' . $oGoods->id?>"><?=$oGoods->name?></a>
                 <div class="text-muted my-5"><?=$oGoods->description?></div>
@@ -34,9 +34,9 @@ if (!empty($cartItems)): ?>
                 <span class="badge badge-primary"><?=$cartItem['total']?> руб.</span>
             </td>
         </tr>
-    <? endforeach; ?>
-<? else: ?>
+    <?php endforeach; ?>
+<?php else: ?>
     <span>Нет ни одного товара</span>
-<? endif; ?>
+<?php endif; ?>
 
 

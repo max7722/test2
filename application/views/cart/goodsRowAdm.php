@@ -10,7 +10,7 @@
 /** @var \application\core\view\TemplateConfig $cb */
 
 if (!empty($orderList)): ?>
-    <? foreach ($orderList as $oOrder): ?>
+    <?php foreach ($orderList as $oOrder): ?>
         <tr>
             <th class="text-center" scope="row"><a href="/admin/goods/show/<?= $oOrder->id_goods ?>" ><?= $oOrder->id_goods ?></a></th>
             <td>
@@ -26,9 +26,9 @@ if (!empty($orderList)): ?>
                 <span class="badge badge-primary"><?= $oOrder->price ?> руб.</span>
             </td>
         </tr>
-    <? endforeach; ?>
-<? else: ?>
+    <?php endforeach; ?>
+<?php else: ?>
     <span>Нет ни одного товара</span>
-<? endif; ?>
+<?php endif; ?>
 
 

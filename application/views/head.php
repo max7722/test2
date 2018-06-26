@@ -22,11 +22,11 @@
 
 <link rel="stylesheet" id="css-main" href="<?=$cb->assets_folder?>/css/codebase.min.css">
 <link rel="stylesheet" id="css-main" href="<?=$cb->assets_folder?>/js/plugins/sweetalert2/sweetalert2.min.css">
-<? if (!empty($cssList)): ?>
-    <? foreach ($cssList as $sPath): ?>
+<?php if (!empty($cssList)): ?>
+    <?php foreach ($cssList as $sPath): ?>
         <link rel="stylesheet" href='<?=$sPath?>'>
-    <? endforeach; ?>
-<? endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
 
 <!--Може пригодится-->
 <?php /*if ($cb->theme) { */?><!--

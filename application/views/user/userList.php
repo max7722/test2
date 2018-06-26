@@ -14,8 +14,8 @@
                 </tr>
             </thead>
             <tbody>
-            <? if ($userList): ?>
-                <? foreach ($userList as $oUser): ?>
+            <?php if ($userList): ?>
+                <?php foreach ($userList as $oUser): ?>
                     <tr>
                         <th scope="row"><?= $oUser->id ?></th>
                         <td class="d-none d-sm-table-cell">
@@ -28,8 +28,8 @@
                             <div class="text-muted my-5"><?=$oUser->password ?></div>
                         </td>
                     </tr>
-                <? endforeach; ?>
-            <? endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
             </tbody>
         </table>
     </div>

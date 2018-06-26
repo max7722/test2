@@ -16,27 +16,27 @@
         </div>
     </div>
 </div>
-<? if (!empty($slider)): ?>
+<?php if (!empty($slider)): ?>
     <br>
     <div style="height: 450px">
         <?= $slider->render() ?>
     </div>
-<? endif; ?>
-<? if (!empty($hit)): ?>
+<?php endif; ?>
+<?php if (!empty($hit)): ?>
     <br>
     <div class="content">
         <?= $hit->render() ?>
     </div>
-<? endif; ?>
-<? if (!empty($new)): ?>
+<?php endif; ?>
+<?php if (!empty($new)): ?>
     <br>
     <div class="content">
         <?= $new->render() ?>
     </div>
-<? endif; ?>
-<? if (!empty($luck)): ?>
+<?php endif; ?>
+<?php if (!empty($luck)): ?>
     <br>
     <div class="content">
         <?= $luck->render() ?>
     </div>
-<? endif; ?>
+<?php endif; ?>

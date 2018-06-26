@@ -22,10 +22,10 @@
                 </tr>
             </thead>
             <tbody>
-                <? if (!empty($categories)): ?>
-                    <? foreach ($categories as $oCategory): ?>
+                <?php if (!empty($categories)): ?>
+                    <?php foreach ($categories as $oCategory): ?>
                         <tr>
-                            <th class="text-center" scope="row"><a href="/admin/category/show/<?= $oCategory->id ?>"><?= $oCategory->id ?></a></th>
+                            <th scope="row"><a href="/admin/category/show/<?= $oCategory->id ?>"><?= $oCategory->id ?></a></th>
                             <td>
                                 <a class="font-size-h5 font-w600" href="<?=$cb->sMainPath . '/admin/category/show/' . $oCategory->id?>"><?=$oCategory->name?></a>
                             </td>
@@ -36,8 +36,8 @@
                                 <a href="/admin/category/goods/<?= $oCategory->id ?>">Список товаров</a>
                             </td>
                         </tr>
-                    <? endforeach; ?>
-                <? endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>

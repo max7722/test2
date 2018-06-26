@@ -5,16 +5,16 @@
 <div class="content">
     <div class="block">
         <div class="block-content">
-            <? if ($text): ?>
+            <?php if ($text): ?>
                 <div class="row justify-content-center py-20">
                     <?=$text?>
                 </div>
-            <? endif; ?>
-            <? if ($path): ?>
+            <?php endif; ?>
+            <?php if ($path): ?>
                 <div class="row justify-content-center py-20">
                     <a href="<?=$path?>">Назад</a>
                 </div>
-            <? endif; ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>

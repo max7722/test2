@@ -9,8 +9,8 @@
 
 if (!empty($items)): ?>
     <header id="page-header">
-        <? foreach ($items as $item): ?>
+        <?php foreach ($items as $item): ?>
             <?=$item->render()?>
-        <? endforeach; ?>
+        <?php endforeach; ?>
     </header>
-<? endif;
+<?php endif;

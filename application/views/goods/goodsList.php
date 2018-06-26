@@ -9,11 +9,10 @@
 /** @var \application\models\Goods [] $goodsList */
 /** @var \application\core\view\TemplateConfig $cb */
 
-if (!empty($goodsList)) {
-    foreach ($goodsList as $oGoods) {
-        ?>
+if (!empty($goodsList)): ?>
+    <?php foreach ($goodsList as $oGoods): ?>
         <tr>
-            <th class="text-center" scope="row"><a href="/admin/goods/show/<?= $oGoods->id ?>"><?= $oGoods->id ?></a></th>
+            <th scope="row"><a href="/admin/goods/show/<?= $oGoods->id ?>"><?= $oGoods->id ?></a></th>
             <td>
                 <a class="font-size-h5 font-w600" href="<?=$cb->sMainPath . '/admin/goods/show/' . $oGoods->id?>"><?=$oGoods->name?></a>
             </td>
@@ -24,8 +23,7 @@ if (!empty($goodsList)) {
                 <span class="badge badge-primary"><?=$oGoods->price?> руб.</span>
             </td>
         </tr>
-        <?
-    }
-}?>
+    <?php endforeach; ?>
+<?php endif;
 
 

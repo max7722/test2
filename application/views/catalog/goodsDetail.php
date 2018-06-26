@@ -18,20 +18,20 @@
             <div class="row items-push">
                 <div class="col-md-4" align="center"">
                         <img class="img-fluid" style="max-height: 250px;" src="
-                        <? if ($goods->image): ?><?='/' . $goods->image?>
-                        <? else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
-                        <? endif; ?>" alt="">
+                        <?php if ($goods->image): ?><?='/' . $goods->image?>
+                        <?php else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
+                        <?php endif; ?>" alt="">
                 </div>
                 <div class="col-md-6">
-                    <? if ($goods->categories): ?>
+                    <?php if ($goods->categories): ?>
                         <span>Товар находится в следующих категориях:</span>
                     <br>
-                        <? foreach ($goods->categories as $oCategory): ?>
+                        <?php foreach ($goods->categories as $oCategory): ?>
                             <a class="link-effect" href="<?=$cb->sMainPath . '/catalog/category/' . $oCategory->id?>"><?=$oCategory->name?></a>
-                        <? endforeach; ?>
-                    <? else: ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
                         Товар не находится ни в одной категории.
-                    <? endif; ?>
+                    <?php endif; ?>
                     <h3>Описание</h3>
                     <?=$goods->description?>
                 </div>

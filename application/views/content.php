@@ -9,8 +9,8 @@
 
 if (!empty($items)): ?>
     <main id="main-container" style="overflow: hidden;">
-        <? foreach ($items as $item): ?>
+        <?php foreach ($items as $item): ?>
             <?=$item->render()?>
-        <? endforeach; ?>
+        <?php endforeach; ?>
     </main>
-<? endif; ?>
+<?php endif; ?>
