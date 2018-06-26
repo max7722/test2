@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by PhpStorm.
  * User: Max
@@ -17,7 +17,7 @@ if (!empty($cartItems)): ?>
         ?>
         <tr>
             <th class="text-center" scope="row"><img class="img-avatar" src="
-                        <? if ($oGoods->image): ?><?=$cb->sMainPath . $cb->sWebFolder . '/' . $oGoods->image?>
+                        <? if ($oGoods->image): ?><?='/' . $oGoods->image?>
                         <? else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
                         <? endif; ?>"></th>
             <td>

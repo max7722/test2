@@ -20,7 +20,7 @@ use application\models\Goods;
  */
 class GoodsTableRow extends View
 {
-    protected $template = 'catalog\goodsTableRow.php';
+    protected $template = 'catalog/goodsTableRow.php';
 
     protected $aJsList = [
         TemplateConfig::WEB_FOLDER . '/js/cart/buyCart.js',

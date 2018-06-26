@@ -13,6 +13,10 @@ class TemplateConfig
 {
     private static $oInstance;
 
+    //todo наверное лучше перенести в сами вьюхи
+    const GOODS_DEFAULT_IMAGE = self::WEB_FOLDER . '/images/default-goods.png';
+    const CATEGORY_DEFAULT_IMAGE = self::WEB_FOLDER . '/images/default-category.jpg';
+
     //для codebase
     const ASSETS_FOLDER = '/lib/codebase/assets';
 

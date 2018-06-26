@@ -78,7 +78,7 @@ class Goods extends RecordPrototype
     public function getLittleDescription()
     {
         if (strlen($this->description) > 40) {
-            return strip_tags(substr($this->description, 0, 37) . '...');
+            return strip_tags(mb_substr($this->description, 0, 37) . '...');
         }
 
         return strip_tags($this->description);

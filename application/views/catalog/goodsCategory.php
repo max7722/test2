@@ -20,10 +20,9 @@
             <div class="row items-push">
                 <div class="col-md-4">
                     <div class="">
-                        <img class="img-fluid" src="
-                        <? if ($category->image): ?><?=$cb->sMainPath . $cb->sWebFolder . '/' . $category->image?>
-                        <? else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-category.jpg'?>
-                        <? endif; ?>" alt="">
+                        <img class="img-fluid" src="<?php if ($category->image): ?><?='/' . $category->image ?>
+                        <?php else: ?><?=\application\core\view\TemplateConfig::CATEGORY_DEFAULT_IMAGE ?>
+                        <?php endif; ?>" alt="">
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -32,9 +31,9 @@
             </div>
 
             <?if (!empty($listViews)):?>
-                <?foreach ($listViews as $oView):?>
+                <?php foreach ($listViews as $oView): ?>
                     <?=$oView->render()?>
-                <?endforeach;?>
+                <?php endforeach; ?>
             <?endif;?>
         </div>
     </div>
