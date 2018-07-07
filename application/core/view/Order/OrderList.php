@@ -12,6 +12,10 @@ namespace application\core\view\Order;
 use application\core\View;
 use application\models\Order;
 
+/**
+ * Class OrderList
+ * @package application\core\view\Order
+ */
 class OrderList extends View
 {
     protected $template = 'order/admOrderList.php';
