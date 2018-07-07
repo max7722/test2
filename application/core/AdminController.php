@@ -65,10 +65,10 @@ class AdminController extends BaseController
         $oUserView->title = 'Пользователи';
         $oUserView->path = '/admin/user';
 
-        $oSidebar->menu->addItems($oGoodsView);
-        $oSidebar->menu->addItems($oCategoryView);
-        $oSidebar->menu->addItems($oOrderView);
-        $oSidebar->menu->addItems($oUserView);
+        $oSidebar->menu->addItem($oGoodsView);
+        $oSidebar->menu->addItem($oCategoryView);
+        $oSidebar->menu->addItem($oOrderView);
+        $oSidebar->menu->addItem($oUserView);
 
         return $oSidebar;
     }

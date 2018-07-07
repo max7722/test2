@@ -8,22 +8,16 @@
 
 namespace application\core\view;
 
-use application\core\View;
+use application\core\ViewContent;
 
 /**
  * Class ContentBlock
  * @package application\core
  * @property-read array items
  */
-class ContentBlock extends View
+class ContentBlock extends ViewContent
 {
     protected function init()
     {
-        $this->aParams['items'] = [];
-    }
-
-    public function addItem($oItem)
-    {
-        $this->aParams['items'][] = $oItem;
     }
 }

@@ -57,15 +57,15 @@ class PageController extends BaseController
             $oCategorySidebarView = new view\Sidebar\MenuItem();
             $oCategorySidebarView->title = $oCategory->name;
             $oCategorySidebarView->path = TemplateConfig::getMainPath() . '/catalog/category/' . $oCategory->id;
-            $oGoodsSidebarView->addItems($oCategorySidebarView);
+            $oGoodsSidebarView->addItem($oCategorySidebarView);
         }
 
         $oAbout = new MenuItem();
         $oAbout->title = 'О компании';
         $oAbout->path = '/about';
         
-        $oSidebar->menu->addItems($oGoodsSidebarView);
-        $oSidebar->menu->addItems($oAbout);
+        $oSidebar->menu->addItem($oGoodsSidebarView);
+        $oSidebar->menu->addItem($oAbout);
 
         return $oSidebar;
     }
