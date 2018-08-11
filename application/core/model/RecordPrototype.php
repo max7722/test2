@@ -56,7 +56,7 @@ abstract class RecordPrototype
             return $this->aAttribute[$name];
         }
 
-        if (key_exists($name, $this->aOldAttribute)) {
+        if (@key_exists($name, $this->aOldAttribute)) {
             return $this->aOldAttribute[$name];
         }
 
@@ -116,7 +116,11 @@ abstract class RecordPrototype
             return null;
         }
 
-        $oObject = new static($oQuery->fetch());
+        $res = $oQuery->fetch();
+        if (!$res) {
+            return null;
+        }
+        $oObject = new static($res);
 
         return $oObject;
     }
@@ -244,16 +248,17 @@ abstract class RecordPrototype
 
         $aFields = array_keys($this->aAttribute);
         $aValues = array_values($this->aAttribute);
-        $sFields = implode(' = ?, ', $aFields) . ' = ?';
+        $sFields = '`' . implode('` = ?, `', $aFields) . '` = ?';
 
-        $oQuery = $db->prepare('UPDATE ' . static::tableName() . ' SET ' . $sFields .
+        $oQuery = $db->prepare('UPDATE `' . static::tableName() . '` SET ' . $sFields .
             ' WHERE id = ' . $this->aOldAttribute['id']);
 
         if (!$oQuery->execute($aValues)) {
+            var_dump($oQuery->queryString, $oQuery->errorInfo());
             return false;
         }
 
-        $sQueryForObject = 'SELECT * FROM ' . static::tableName() . ' WHERE id = ' . $this->id;
+        $sQueryForObject = 'SELECT * FROM `' . static::tableName() . '` WHERE id = ' . $this->id;
         $this->aOldAttribute = $db->query($sQueryForObject)->fetch();
 
         return true;
@@ -287,7 +292,8 @@ abstract class RecordPrototype
 
         $this->id = $idCurrent;
 
-        $sQueryForObject = 'SELECT * FROM ' . static::tableName() . ' WHERE id = ' . $idCurrent;
+        $sQueryForObject = 'SELECT * FROM `' . static::tableName() . '` WHERE id = ' . $idCurrent;
+
         $this->aOldAttribute = $db->query($sQueryForObject)->fetch();
         $this->aAttribute = [];
 

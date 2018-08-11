@@ -9,8 +9,8 @@
 
 if (!empty($items)): ?>
     <nav id="sidebar">
-        <? foreach ($items as $item): ?>
+        <?php foreach ($items as $item): ?>
             <div class="leftMenuItem"><?=$item->render()?></div>
-        <? endforeach; ?>
+        <?php endforeach; ?>
     </nav>
-<? endif;
+<?php endif;

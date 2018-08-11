@@ -10,10 +10,10 @@
 /** @var \application\core\View $footer */
 /** @var \application\core\View $leftMenu */
 /** @var \application\core\View $head */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 ?>
-    <head>
+    <head class="no-focus">
         <?=$head->render()?>
     </head>
     <body>
@@ -24,10 +24,10 @@
             <?=$footer->render()?>
         </div>
 
-        <? if (!empty($cb->getJs())): ?>
-            <? foreach ($cb->getJs() as $sPath): ?>
+        <?php if (!empty($cb->getJs())): ?>
+            <?php foreach ($cb->getJs() as $sPath): ?>
                 <script src="<?=$cb->sMainPath . $sPath?>"></script>
-            <? endforeach; ?>
-        <? endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </body>
 

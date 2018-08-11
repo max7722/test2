@@ -7,7 +7,7 @@
  */
 
 /** @var \application\models\Goods $goods */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
 ?>
 
@@ -16,27 +16,28 @@
         <div class="block-content">
             <h1><?=$goods->name?></h1>
             <div class="row items-push">
-                <div class="col-md-4">
-                    <div class="">
-                        <img class="img-fluid" src="<?=$cb->sMainPath . $cb->sWebFolder . '/' . $goods->image?>" alt="">
-                    </div>
+                <div class="col-md-4" align="center"">
+                        <img class="img-fluid" style="max-height: 250px;" src="
+                        <?php if ($goods->image): ?><?='/' . $goods->image?>
+                        <?php else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
+                        <?php endif; ?>" alt="">
                 </div>
                 <div class="col-md-6">
-                    <? if ($goods->categories): ?>
+                    <?php if ($goods->categories): ?>
                         <span>Товар находится в следующих категориях:</span>
                     <br>
-                        <? foreach ($goods->categories as $oCategory): ?>
+                        <?php foreach ($goods->categories as $oCategory): ?>
                             <a class="link-effect" href="<?=$cb->sMainPath . '/catalog/category/' . $oCategory->id?>"><?=$oCategory->name?></a>
-                        <? endforeach; ?>
-                    <? else: ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
                         Товар не находится ни в одной категории.
-                    <? endif; ?>
+                    <?php endif; ?>
                     <h3>Описание</h3>
                     <?=$goods->description?>
                 </div>
                 <div class="col-md-2">
                     <div class="font-size-h4 font-w600 text-center"><?=$goods->price?> руб.</div>
-                    <button type="button" class="btn btn-secondary min-width-125 ">В корзину</button>
+                    <button type="button" class="btn btn-secondary min-width-125 js-cart-append" data-id="<?=$goods->id?>">В корзину</button>
                 </div>
             </div>
         </div>

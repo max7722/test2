@@ -13,54 +13,57 @@
 /** @var int $midlePagin */
 /** @var int $leftButtonDisable */
 /** @var int $rightButtonDisable */
-/** @var int $catalog */
+/** @var int $id */
+/** @var string $path */
 
-$sPath = 'http://shop.my/catalog/category/' . $catalog . '/';
+$sPath = $path;
 ?>
-<nav>
-    <ul class="pagination justify-content-end">
-        <li class="page-item <?if (!empty($leftButtonDisable)):?> disabled <?endif;?>">
-            <a class="page-link" href="<?=$sPath . ($active - 1)?>">
-                            <span aria-hidden="true">
-                                <i class="fa fa-angle-left"></i>
-                            </span>
-                <span class="sr-only">Назад</span>
-            </a>
-        </li>
-        <?if (!empty($leftPagin)): ?>
-            <?foreach ($leftPagin as $iItem):?>
-                <li class="page-item <?if($iItem == $active):?> active<?endif?>">
-                    <a class="page-link" href="<?=$sPath . $iItem?>"><?=$iItem?></a>
-                </li>
-            <?endforeach;?>
-        <?endif;?>
-        <?if (!empty($midlePagin)):?>
-            <li class="page-item disabled">
-                <a class="page-link" href="javascript:void(0)">...</a>
+<?php if ($count > 1): ?>
+    <nav>
+        <ul class="pagination justify-content-end">
+            <li class="page-item <?php if (!empty($leftButtonDisable)): ?> disabled <?php endif; ?>">
+                <a class="page-link" href="<?=$sPath . ($active - 1)?>">
+                                <span aria-hidden="true">
+                                    <i class="fa fa-angle-left"></i>
+                                </span>
+                    <span class="sr-only">Назад</span>
+                </a>
             </li>
-            <?foreach ($midlePagin as $iItem):?>
-                <li class="page-item <?if($iItem == $active):?> active<?endif?>">
-                    <a class="page-link" href="<?=$sPath . $iItem?>"><?=$iItem?></a>
+            <?php if (!empty($leftPagin)): ?>
+                <?php foreach ($leftPagin as $iItem): ?>
+                    <li class="page-item <?php if($iItem == $active): ?> active<?php endif ?>">
+                        <a class="page-link" href="<?=$sPath . $iItem?>"><?=$iItem?></a>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <?php if (!empty($midlePagin)): ?>
+                <li class="page-item disabled">
+                    <a class="page-link" href="javascript:void(0)">...</a>
                 </li>
-            <?endforeach;?>
-        <?endif;?>
-        <?if (!empty($rightPagin)): ?>
-            <li class="page-item disabled">
-                <a class="page-link" href="javascript:void(0)">...</a>
+                <?php foreach ($midlePagin as $iItem): ?>
+                    <li class="page-item <?php if($iItem == $active): ?> active<?php endif; ?>">
+                        <a class="page-link" href="<?=$sPath . $iItem?>"><?=$iItem?></a>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <?php if (!empty($rightPagin)): ?>
+                <li class="page-item disabled">
+                    <a class="page-link" href="javascript:void(0)">...</a>
+                </li>
+                <?php foreach ($rightPagin as $iItem): ?>
+                    <li class="page-item <?php if($iItem == $active): ?> active<?php endif; ?>">
+                        <a class="page-link" href="<?=$sPath . $iItem?>"><?=$iItem?></a>
+                    </li>
+                <?php endforeach; ?>
+            <? endif; ?>
+            <li class="page-item <?php if (!empty($rightButtonDisable)): ?> disabled <?php endif; ?>">
+                <a class="page-link" href="<?=$sPath . ($active + 1)?>">
+                                <span aria-hidden="true">
+                                    <i class="fa fa-angle-right"></i>
+                                </span>
+                    <span class="sr-only">Вперед</span>
+                </a>
             </li>
-            <?foreach ($rightPagin as $iItem):?>
-                <li class="page-item <?if($iItem == $active):?> active<?endif?>">
-                    <a class="page-link" href="<?=$sPath . $iItem?>"><?=$iItem?></a>
-                </li>
-            <?endforeach;?>
-        <?endif;?>
-        <li class="page-item <?if (!empty($rightButtonDisable)):?> disabled <?endif;?>">
-            <a class="page-link" href="<?=$sPath . ($active + 1)?>">
-                            <span aria-hidden="true">
-                                <i class="fa fa-angle-right"></i>
-                            </span>
-                <span class="sr-only">Вперед</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+        </ul>
+    </nav>
+<?php endif; ?>

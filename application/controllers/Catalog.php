@@ -9,25 +9,34 @@
 namespace application\controllers;
 
 
-use application\core\Controller;
+use application\core\PageController;
 use application\core\Route;
 use application\core\view\Catalog\GoodsCategory;
 use application\core\view\Catalog\GoodsTable;
 use application\core\view\Catalog\GoodsTableRow;
-use application\core\view\GoodsDetail;
+use application\core\view\Catalog\GoodsDetail;
 use application\core\view\PaginationView;
 use application\models\Category;
 use application\models\Goods;
 
-class Catalog extends Controller
+class Catalog extends PageController
 {
     public function actionIndex()
     {
-        $this->oContent->render();
+        Route::getPage404();
+        exit;
     }
 
-    public function actionGoods($id = 0)
+    public function actionGoods()
     {
+        $aRoutes = $this->getRoutes();
+
+        if (count($aRoutes) !== 1) {
+            Route::getPage404();
+            exit;
+        }
+
+        $id = array_shift($aRoutes);
         if (!is_numeric($id) || $id <= 0) {
             Route::getPage404();
             exit;
@@ -40,6 +49,9 @@ class Catalog extends Controller
             exit;
         }
 
+
+        $this->oContent->head->title = $oGoods->name;
+
         $oGoodsView = new GoodsDetail();
         $oGoodsView->goods = $oGoods;
 
@@ -48,24 +60,61 @@ class Catalog extends Controller
         $this->oContent->render();
     }
 
-    public function actionCategory($id = 0)
+    public function actionCategory()
     {
+        $aRoutes = $this->getRoutes();
+        $iCountOnPage = 10;
+
+        if (count($aRoutes) > 2) {
+            Route::getPage404();
+            exit;
+        }
+
+        $id = array_shift($aRoutes);
+        $iPage = array_shift($aRoutes);
+
         if (!is_numeric($id) || $id <= 0) {
             Route::getPage404();
             exit;
         }
 
+        if (empty($iPage)) {
+            $iPage = 0;
+        }
+
+        if (!is_numeric($iPage) || $iPage < 0) {
+            Route::getPage404();
+            exit;
+        }
+
+
+
         $oCategory = Category::findOne($id);
+
+        $this->oContent->head->title = $oCategory->name;
 
         if (!$oCategory) {
             Route::getPage404();
             exit;
         }
 
-        $oGoodsListView = new GoodsList();
-        $oGoodsListView->addGoods($oCategory->goods);
+        $oGoodsTableView = new GoodsTable();
+        $oGoodsRowView = new GoodsTableRow();
+        $goods = array_slice($oCategory->goods, $iPage  * $iCountOnPage, $iCountOnPage);
+        $oGoodsRowView->addGoods($goods);
+        $oGoodsTableView->goodsRowView = $oGoodsRowView;
 
-        $this->oContent->content->addItem($oGoodsListView);
+        $oPagination = new PaginationView();
+        $oPagination->count = intval(count($oCategory->goods) / $iCountOnPage);
+        $oPagination->active = $iPage;
+        $oPagination->path = '/catalog/category/' . $id . '/';
+
+        $oGoodsCategoryView = new GoodsCategory();
+        $oGoodsCategoryView->category = $oCategory;
+        $oGoodsCategoryView->addView($oGoodsTableView);
+        $oGoodsCategoryView->addView($oPagination);
+
+        $this->oContent->content->addItem($oGoodsCategoryView);
 
         $this->oContent->render();
     }

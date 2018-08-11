@@ -7,16 +7,19 @@
  */
 
 /** @var \application\models\Goods [] $goodsList */
-/** @var \application\core\view\CodebaseConfig $cb */
+/** @var \application\core\view\TemplateConfig $cb */
 
-if (!empty($goodsList)) {
-    foreach ($goodsList as $oGoods) {
-        ?>
+if (!empty($goodsList)): ?>
+    <?php foreach ($goodsList as $oGoods): ?>
+        <?php if ($oGoods->active): ?>
         <tr>
-            <th class="text-center" scope="row"><img class="img-avatar" src="<?=$cb->sMainPath . $cb->sWebFolder . '/'?><?=$oGoods->image?>"></th>
+            <th class="text-center" scope="row"><img class="img-avatar" src="
+                        <?php if ($oGoods->image): ?><?='/' . $oGoods->image?>
+                        <?php else: ?><?=$cb->sMainPath . $cb->sWebFolder . '/images/default-goods.png'?>
+                        <?php endif; ?>"></th>
             <td>
                 <a class="font-size-h5 font-w600" href="<?=$cb->sMainPath . '/catalog/goods/' . $oGoods->id?>"><?=$oGoods->name?></a>
-                <div class="text-muted my-5"><?=$oGoods->description?></div>
+                <div class="text-muted my-5"><?=$oGoods->getLittleDescription()?></div>
             </td>
             <td class="d-none d-sm-table-cell">
                 <span class="badge badge-primary"><?=$oGoods->price?> руб.</span>
@@ -29,8 +32,8 @@ if (!empty($goodsList)) {
                 </div>
             </td>
         </tr>
-        <?
-    }
-}?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif;?>
 
 

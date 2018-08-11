@@ -50,4 +50,30 @@ class Order extends RecordPrototype
         $this->aOrderList = $value;
     }
 
+    /**
+     * @return int|string
+     */
+    public function getNameUser()
+    {
+        $oUser = User::findOne($this->id_user);
+        if ($oUser) {
+            return $oUser->login;
+        }
+
+        return '';
+    }
+
+    /**
+     * @return int|string
+     */
+    public function getNameDelivery()
+    {
+        $oDelivery = Delivery::findOne($this->type_delivery);
+        if ($oDelivery) {
+            return $oDelivery->name;
+        }
+
+        return 0;
+    }
+
 }

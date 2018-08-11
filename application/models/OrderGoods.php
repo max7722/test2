@@ -15,6 +15,7 @@ use application\core\model\RecordPrototype;
  * @property int id
  * @property int id_user
  * @property int id_goods
+ * @property int id_order
  * @property string name
  * @property int count
  * @property string price

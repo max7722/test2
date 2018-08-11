@@ -10,13 +10,18 @@ namespace application\core\view\Header;
 
 
 use application\core\View;
+use application\core\ViewContent;
 
-class HeaderView extends View
+/**
+ * Class HeaderView
+ * @package application\core\view\Header
+ * @property View[] items
+ */
+class HeaderView extends ViewContent
 {
     protected $template = 'header/headerView.php';
 
     protected function init()
     {
-
     }
 }

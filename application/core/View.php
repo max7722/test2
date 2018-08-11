@@ -8,7 +8,7 @@
 
 namespace application\core;
 
-use application\core\view\CodebaseConfig;
+use application\core\view\TemplateConfig;
 
 
 /**
@@ -74,10 +74,10 @@ abstract class View
      */
     abstract protected function init();
 
-    public function initRender()
+    protected function initRender()
     {
         //точно здесь?
-        $oTemplate = CodebaseConfig::getTemplateConfig();
+        $oTemplate = TemplateConfig::getTemplateConfig();
         $oTemplate->addJs($this->aJsList);
 
         $this->aParams['cb'] = $oTemplate;
@@ -90,7 +90,7 @@ abstract class View
             $$paramName = $paramValue;
         }
 
-        include 'application\views\\' . $this->template;
+        include ROOT . '\application\views\\' . $this->template;
     }
 
     public function getTemplate() {

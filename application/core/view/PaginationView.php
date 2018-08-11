@@ -16,7 +16,7 @@ use application\core\View;
  * @package application\core\view
  * @property int count
  * @property int active
- * @property int catalog
+ * @property int id
  */
 class PaginationView extends View
 {
@@ -28,12 +28,13 @@ class PaginationView extends View
         $this->aParams['active'] = 1;
         $this->aParams['maxCount'] = 5;
         $this->aParams['leftMaxCount'] = 3;
-        $this->aParams['catalog'] = '';
+        $this->aParams['id'] = '';
+        $this->aParams['path'] = '';
     }
 
-    protected function setCatalog($iValue)
+    protected function setId($iValue)
     {
-        $this->aParams['catalog'] = $iValue;
+        $this->aParams['id'] = $iValue;
     }
 
     protected function setCount($iCount)
@@ -56,37 +57,44 @@ class PaginationView extends View
         $this->aParams['leftMaxCount'] = $iValue;
     }
 
-    public function initRender()
+    protected function setPath($value)
+    {
+        $this->aParams['path'] = $value;
+    }
+
+    protected function initRender()
     {
         $iCount = $this->aParams['count'];
-        if ($iCount > $this->aParams['maxCount']) {
-            $this->aParams['isComposite'] = 1;
+        if ($iCount > 1) {
+            if ($iCount > $this->aParams['maxCount']) {
+                $this->aParams['isComposite'] = 1;
 
-            $iHalfLeftPagin = intval($this->aParams['leftMaxCount'] / 2) + 1;
-            $iRightCount = $this->aParams['maxCount'] - $this->aParams['leftMaxCount'];
-            if ($this->aParams['active'] <= $iHalfLeftPagin) {
-                $this->aParams['leftPagin'] = range(1, $this->aParams['leftMaxCount']);
-                $this->aParams['rightPagin'] = range($iCount - $iRightCount, $iCount);
-            } elseif ($iCount - $this->aParams['active'] <= $iRightCount) {//если елемент находится в правой части пагинатора
-                $this->aParams['leftPagin'] = range(1, $iRightCount);
-                $this->aParams['rightPagin'] = range($iCount - $this->aParams['leftMaxCount'], $iCount);
+                $iHalfLeftPagin = intval($this->aParams['leftMaxCount'] / 2) + 1;
+                $iRightCount = $this->aParams['maxCount'] - $this->aParams['leftMaxCount'];
+                if ($this->aParams['active'] <= $iHalfLeftPagin) {
+                    $this->aParams['leftPagin'] = range(1, $this->aParams['leftMaxCount']);
+                    $this->aParams['rightPagin'] = range($iCount - $iRightCount, $iCount);
+                } elseif ($iCount - $this->aParams['active'] <= $iRightCount) {//если елемент находится в правой части пагинатора
+                    $this->aParams['leftPagin'] = range(1, $iRightCount);
+                    $this->aParams['rightPagin'] = range($iCount - $this->aParams['leftMaxCount'], $iCount);
+                } else {
+                    $this->aParams['leftPagin'] = range(1, 2);
+                    $this->aParams['rightPagin'] = range($iCount - $iRightCount, $iCount);
+                    $this->aParams['midlePagin'] = range($this->aParams['active'] - 1, $this->aParams['active'] + 1);
+                }
             } else {
-                $this->aParams['leftPagin'] = range(1, 2);
-                $this->aParams['rightPagin'] = range($iCount - $iRightCount, $iCount);
-                $this->aParams['midlePagin'] = range($this->aParams['active'] - 1, $this->aParams['active'] + 1);
+                $this->aParams['isComposite'] = 0;
+
+                $this->aParams['leftPagin'] = range(1, $iCount);
             }
-        } else {
-            $this->aParams['isComposite'] = 0;
 
-            $this->aParams['leftPagin'] = range(1, $iCount);
-        }
+            if ($this->aParams['active'] == 1) {
+                $this->aParams['leftButtonDisable'] = 1;
+            }
 
-        if ($this->aParams['active'] == 1) {
-            $this->aParams['leftButtonDisable'] = 1;
-        }
-
-        if ($this->aParams['active'] == $iCount) {
-            $this->aParams['rightButtonDisable'] = 1;
+            if ($this->aParams['active'] == $iCount) {
+                $this->aParams['rightButtonDisable'] = 1;
+            }
         }
 
         parent::initRender();
