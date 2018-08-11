@@ -21,11 +21,17 @@ use application\core\model\RecordPrototype;
  */
 class CartGoods extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'cart_goods';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'id_cart', 'name', 'id_goods', 'count', 'price'];

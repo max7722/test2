@@ -39,26 +39,41 @@ class CartView extends View
         $this->aParams['price'] = Cart::getCart()->getAllPrice();
     }
 
+    /**
+     * @param int $iValue
+     */
     protected function setPrice($iValue)
     {
         $this->aParams['price'] = $iValue;
     }
 
+    /**
+     * @param View $oView
+     */
     protected function setViewRow($oView)
     {
         $this->aParams['viewRow'] = $oView;
     }
 
+    /**
+     * @param string $iValue
+     */
     protected function setTitle($iValue)
     {
         $this->aParams['title'] = $iValue;
     }
 
+    /**
+     * @param int $iValue
+     */
     protected function setId($iValue)
     {
         $this->aParams['id'] = $iValue;
     }
 
+    /**
+     * @param int $iValue
+     */
     protected function setComplete($iValue)
     {
         $this->aParams['complete'] = $iValue;

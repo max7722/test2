@@ -33,6 +33,9 @@ class CategoryEdit extends View
         $this->aParams['category'] = '';
     }
 
+    /**
+     * @param Category $value
+     */
     protected function setCategory($value)
     {
         $this->aParams['category'] = $value;

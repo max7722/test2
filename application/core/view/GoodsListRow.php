@@ -26,6 +26,9 @@ class GoodsListRow extends View
         $this->aParams['goods'] = '';
     }
 
+    /**
+     * @param Goods $value
+     */
     public function setGoods($value)
     {
         $this->aParams['goods'] = $value;

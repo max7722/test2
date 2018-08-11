@@ -17,11 +17,17 @@ use application\core\model\RecordPrototype;
  */
 class Delivery extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'delivery';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'name'];

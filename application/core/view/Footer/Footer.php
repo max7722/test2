@@ -11,6 +11,10 @@ namespace application\core\view\Footer;
 
 use application\core\View;
 
+/**
+ * Class Footer
+ * @package application\core\view\Footer
+ */
 class Footer extends View
 {
     protected $template = 'footer/footer.php';

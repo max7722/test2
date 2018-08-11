@@ -24,11 +24,17 @@ class GoodsDetail extends View
         TemplateConfig::WEB_FOLDER . '/js/cart/buyCart.js',
     ];
 
+    /**
+     * @return mixed|void
+     */
     protected function init()
     {
         $this->aParams['goods'] = '';
     }
 
+    /**
+     * @param $value
+     */
     public function setGoods($value)
     {
         $this->aParams['goods'] = $value;

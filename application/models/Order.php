@@ -24,18 +24,28 @@ use application\core\model\RecordPrototype;
  */
 class Order extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'order';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'id_user', 'datetime', 'type_delivery', 'status', 'address', 'phone', 'price'];
     }
 
+    /** @var array */
     private $aOrderList;
 
+    /**
+     * @return array|static[]
+     */
     protected function getOrderList()
     {
         if (!isset($this->aOrderList)) {
@@ -45,6 +55,9 @@ class Order extends RecordPrototype
         return $this->aOrderList;
     }
 
+    /**
+     * @param $value
+     */
     protected function setOrderList($value)
     {
         $this->aOrderList = $value;

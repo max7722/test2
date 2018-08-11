@@ -10,15 +10,23 @@ namespace application\core\model;
 
 
 use application\models\Goods;
-use application\models\Order;
 use application\models\OrderGoods;
 
+/**
+ * Класс заказа
+ * Class Cart
+ * @package application\core\model
+ */
 class Cart
 {
     private static $oCart;
 
     protected $aCart = [];
 
+    /**
+     * @param string $oCart
+     * @return Cart|bool|mixed
+     */
     public static function getCart($oCart = '')
     {
         if (empty($oCart)) {
@@ -37,6 +45,9 @@ class Cart
     {
     }
 
+    /**
+     * @return $this
+     */
     public function setSessionCart()
     {
         $_SESSION['cart'] = serialize(self::$oCart);
@@ -44,6 +55,9 @@ class Cart
         return $this;
     }
 
+    /**
+     * @return bool|mixed
+     */
     protected static function getSessionCart()
     {
         if (!empty($_SESSION['cart'])) {
@@ -135,11 +149,19 @@ class Cart
         return $this;
     }
 
+    /**
+     * Возвращает позиции заказа
+     * @return array
+     */
     public function getItems()
     {
         return $this->aCart;
     }
 
+    /**
+     * Возвращает распрсенные товары
+     * @return array
+     */
     public function getItemsParsed()
     {
         $aResultCart = $this->aCart;
@@ -154,7 +176,8 @@ class Cart
     }
 
     /**
-     * @param $id_order
+     * Сохраняет заказ
+     * @param $idOrder
      */
     public function saveCart($idOrder)
     {

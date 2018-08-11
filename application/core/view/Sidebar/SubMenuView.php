@@ -27,6 +27,9 @@ class SubMenuView extends ViewContent
         $this->aParams['title'] = '';
     }
 
+    /**
+     * @param string $sTitle
+     */
     public function setTitle($sTitle)
     {
         $this->aParams['title'] = $sTitle;

@@ -14,6 +14,10 @@ use application\core\view\Sidebar\MenuItem;
 use application\core\view\TemplateConfig;
 use application\models\Category;
 
+/**
+ * Class AdminController
+ * @package application\core
+ */
 class AdminController extends BaseController
 {
     /**
@@ -41,6 +45,9 @@ class AdminController extends BaseController
 
     }
 
+    /**
+     * @return view\Sidebar\SidebarView
+     */
     private function getSidebar()
     {
         $oSidebar = new view\Sidebar\SidebarView();
@@ -73,6 +80,9 @@ class AdminController extends BaseController
         return $oSidebar;
     }
 
+    /**
+     * @return view\Header\HeaderView
+     */
     private function getHeader()
     {
         $oHeaderView = new view\Header\HeaderView();
@@ -83,6 +93,9 @@ class AdminController extends BaseController
         return $oHeaderView;
     }
 
+    /**
+     * @return Footer
+     */
     private function getFooter()
     {
         return new Footer();

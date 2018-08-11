@@ -29,16 +29,25 @@ class HeadLogo extends View
         $this->aParams['path'] = '';
     }
 
+    /**
+     * @param string $sFirstHalfTitle
+     */
     public function setFirstHalfTitle($sFirstHalfTitle)
     {
         $this->aParams['firstHalfTitle'] = $sFirstHalfTitle;
     }
 
+    /**
+     * @param string $sSecondHalfTitle
+     */
     public function setSecondHalfTitle($sSecondHalfTitle)
     {
         $this->aParams['secondHalfTitle'] = $sSecondHalfTitle;
     }
 
+    /**
+     * @param string $sPath
+     */
     public function setPath($sPath)
     {
         $this->aParams['path'] = $sPath;

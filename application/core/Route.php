@@ -10,6 +10,10 @@ namespace application\core;
 
 use application\core\model\User;
 
+/**
+ * Class Route
+ * @package application\core
+ */
 class Route
 {
     const PATH_USER_CONTROLLER = 'application\controllers\\';

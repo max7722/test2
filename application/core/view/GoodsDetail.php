@@ -26,6 +26,10 @@ class GoodsDetail extends View
         $this->aParams['goods'] = '';
     }
 
+    /**
+     * Устанавливает товар
+     * @param $value
+     */
     public function setGoods($value)
     {
         $this->aParams['goods'] = $value;

@@ -17,6 +17,10 @@ use application\core\view\Category\GoodsList;
 use application\core\view\PaginationView;
 use application\models\CategoryGoods;
 
+/**
+ * Class Category
+ * @package application\controllers\admin
+ */
 class Category extends AdminController
 {
     public function actionIndex()

@@ -10,6 +10,10 @@ namespace application\core\model;
 
 use application\models\User as ModelUser;
 
+/**
+ * Class User
+ * @package application\core\model
+ */
 class User
 {
     const TYPE_ADMIN = 1;
@@ -21,6 +25,10 @@ class User
 
     private static $oInstance;
 
+    /**
+     * Возвращает текущего пользователя
+     * @return User|bool|mixed
+     */
     public static function getUser()
     {
         if (empty(self::$oInstance)) {
@@ -35,6 +43,10 @@ class User
         return self::$oInstance;
     }
 
+    /**
+     * Возвращает пользователя из сессии
+     * @return bool|mixed
+     */
     protected static function getSessionUser()
     {
         if (!empty($_SESSION['user'])) {
@@ -45,6 +57,7 @@ class User
     }
 
     /**
+     * Определяет авторизован ли пользователь
      * @return bool
      */
     public static function isLogin()
@@ -57,6 +70,7 @@ class User
     }
 
     /**
+     * Определяет тип пользователя админ
      * @return bool
      */
     public static function isAdmin()
@@ -71,6 +85,7 @@ class User
     }
 
     /**
+     * Создает нового пользователя
      * @param $sUserLogin
      * @param $sPass
      * @param array $aParams
@@ -103,6 +118,7 @@ class User
     }
 
     /**
+     * Авторизует пользователя
      * @param $sUserLogin
      * @param $sPass
      * @return bool
@@ -129,6 +145,9 @@ class User
         return true;
     }
 
+    /**
+     * Деавтаризовует пользователя
+     */
     public function logout()
     {
         unset($this->oUser);
@@ -136,6 +155,7 @@ class User
     }
 
     /**
+     * Возвращает модель пользователя БД
      * @return ModelUser
      */
     public function getModel()
@@ -143,6 +163,10 @@ class User
         return $this->oUser;
     }
 
+    /**
+     * Сохраняяет пользователя в сессии
+     * @return $this
+     */
     public function setSessionUser()
     {
         $_SESSION['user'] = serialize($this);

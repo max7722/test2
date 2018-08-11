@@ -37,21 +37,33 @@ class MainView extends View
         $this->aParams['luck'] = null;
     }
 
+    /**
+     * @param View $value
+     */
     protected function setHit(View $value)
     {
         $this->aParams['hit'] = $value;
     }
 
+    /**
+     * @param View $value
+     */
     protected function setSlider(View $value)
     {
         $this->aParams['slider'] = $value;
     }
 
+    /**
+     * @param View $value
+     */
     protected function setNew(View $value)
     {
         $this->aParams['new'] = $value;
     }
 
+    /**
+     * @param View $value
+     */
     protected function setLuck(View $value)
     {
         $this->aParams['luck'] = $value;

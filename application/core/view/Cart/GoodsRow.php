@@ -26,6 +26,9 @@ class GoodsRow extends View
         $this->aParams['cartItems'] = Cart::getCart()->getItemsParsed();
     }
 
+    /**
+     * @param $oValue
+     */
     protected function setCartItems($oValue)
     {
         $this->aParams['cartItems'] = $oValue;

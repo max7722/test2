@@ -10,15 +10,16 @@ namespace application\controllers\admin;
 
 
 use application\core\AdminController;
-use application\core\model\Cart;
 use application\core\Route;
 use application\core\view\Cart\CartView;
-use application\core\view\Cart\GoodsRow;
 use application\core\view\Cart\GoodsRowAdm;
 use application\core\view\Order\OrderList;
 use application\core\view\PaginationView;
-use application\models\OrderGoods;
 
+/**
+ * Class Order
+ * @package application\controllers\admin
+ */
 class Order extends AdminController
 {
     public function actionIndex()

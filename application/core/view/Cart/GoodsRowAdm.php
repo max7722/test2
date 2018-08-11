@@ -28,6 +28,9 @@ class GoodsRowAdm extends View
         $this->aParams['orderList'] = [];
     }
 
+    /**
+     * @param $oValue
+     */
     protected function setOrderList($oValue)
     {
         $this->aParams['orderList'] = $oValue;

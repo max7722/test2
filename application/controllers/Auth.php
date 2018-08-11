@@ -20,6 +20,10 @@ use application\core\view\Auth\RegForm;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
+/**
+ * Class Auth
+ * @package application\controllers
+ */
 class Auth extends PageController
 {
     public function actionIndex()

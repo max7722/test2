@@ -35,16 +35,25 @@ class AuthForm extends View
         $this->aParams['error'] = false;
     }
 
+    /**
+     * @param $value
+     */
     protected function setName($value)
     {
         $this->aParams['name'] = $value;
     }
 
+    /**
+     * @param $value
+     */
     protected function setPassword($value)
     {
         $this->aParams['password'] = $value;
     }
 
+    /**
+     * @param $value
+     */
     protected function setError($value)
     {
         $this->aParams['error'] = (bool)$value;

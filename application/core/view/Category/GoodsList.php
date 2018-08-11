@@ -26,6 +26,9 @@ class GoodsList extends View
         $this->aParams['category'] = [];
     }
 
+    /**
+     * @param Category $value
+     */
     public function setCategory($value)
     {
         $this->aParams['category'] = $value;

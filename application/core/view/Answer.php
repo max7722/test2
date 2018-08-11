@@ -27,11 +27,17 @@ class Answer extends View
         $this->aParams['text'] = '';
     }
 
+    /**
+     * @param string $value
+     */
     protected function setPath($value)
     {
         $this->aParams['path'] = $value;
     }
 
+    /**
+     * @param string $value
+     */
     protected function setText($value)
     {
         $this->aParams['text'] = $value;

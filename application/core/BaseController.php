@@ -8,7 +8,10 @@
 
 namespace application\core;
 
-
+/**
+ * Class BaseController
+ * @package application\core
+ */
 class BaseController
 {
     /** @var view\Body */

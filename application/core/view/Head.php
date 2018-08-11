@@ -35,11 +35,17 @@ class Head extends View
         $this->aParams['cssList'] = $this->css;
     }
 
+    /**
+     * @param string $sTitle
+     */
     protected function setTitle($sTitle)
     {
         $this->aParams['title'] = $sTitle;
     }
 
+    /**
+     * @param array $aListCss
+     */
     public function addCss(array $aListCss)
     {
         $this->aParams['cssList'] = array_merge($this->aParams['cssList'], $aListCss);

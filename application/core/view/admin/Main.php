@@ -11,6 +11,10 @@ namespace application\core\view\admin;
 
 use application\core\View;
 
+/**
+ * Class Main
+ * @package application\core\view\admin
+ */
 class Main extends View
 {
     protected $template = 'admin/main.php';

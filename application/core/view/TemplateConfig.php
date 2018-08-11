@@ -8,9 +8,13 @@
 
 namespace application\core\view;
 
-
+/**
+ * Class TemplateConfig
+ * @package application\core\view
+ */
 class TemplateConfig
 {
+    /** @var TemplateConfig */
     private static $oInstance;
 
     //todo наверное лучше перенести в сами вьюхи
@@ -31,6 +35,9 @@ class TemplateConfig
 
     protected $aJsList = [];
 
+    /**
+     * @return TemplateConfig
+     */
     public static function getTemplateConfig()
     {
         if (!self::$oInstance) {
@@ -43,6 +50,9 @@ class TemplateConfig
         return self::$oInstance;
     }
 
+    /**
+     * @return string
+     */
     public static function getMainPath()
     {
         return self::getTemplateConfig()->sMainPath;
@@ -53,7 +63,7 @@ class TemplateConfig
     }
 
     /**
-     * @param string|string[] $sPath
+     * @param string|string[] $mPath
      */
     public function addJs($mPath)
     {

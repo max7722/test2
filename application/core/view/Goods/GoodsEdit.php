@@ -33,6 +33,9 @@ class GoodsEdit extends View
         $this->aParams['goods'] = '';
     }
 
+    /**
+     * @param Goods $value
+     */
     protected function setGoods($value)
     {
         $this->aParams['goods'] = $value;

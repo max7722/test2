@@ -26,6 +26,9 @@ class CategoryList extends View
         $this->aParams['categories'] = [];
     }
 
+    /**
+     * @param Category[] $value
+     */
     public function setCategories($value)
     {
         $this->aParams['categories'] = $value;

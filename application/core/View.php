@@ -26,6 +26,10 @@ abstract class View
     /** @var string[]  */
     protected $aJsList = [];
 
+    /**
+     * View constructor.
+     * @param string $sTemplate
+     */
     public function __construct($sTemplate = '')
     {
         if ($sTemplate) {
@@ -70,10 +74,14 @@ abstract class View
     }
 
     /**
-     * @return mixed
+     * Инициализация отображения
+     * @return void
      */
     abstract protected function init();
 
+    /**
+     * Инициализация отрисовки
+     */
     protected function initRender()
     {
         //точно здесь?
@@ -93,10 +101,16 @@ abstract class View
         include ROOT . '\application\views\\' . $this->template;
     }
 
+    /**
+     * @return string
+     */
     public function getTemplate() {
         return $this->template;
     }
 
+    /**
+     * @param string $value
+     */
     public function setTemplate($value) {
         $this->template = $value;
     }

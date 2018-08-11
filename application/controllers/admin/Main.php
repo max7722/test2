@@ -11,6 +11,10 @@ namespace application\controllers\admin;
 
 use application\core\AdminController;
 
+/**
+ * Class Main
+ * @package application\controllers\admin
+ */
 class Main extends AdminController
 {
     public function actionIndex()

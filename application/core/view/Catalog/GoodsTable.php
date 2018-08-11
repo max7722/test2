@@ -20,6 +20,9 @@ class GoodsTable extends View
 {
     protected $template = 'catalog/goodsTable.php';
 
+    /**
+     * @return mixed|void
+     */
     protected function init()
     {
         $this->aParams['goodsRowView'] = '';

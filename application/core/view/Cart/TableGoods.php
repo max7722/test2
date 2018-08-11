@@ -25,6 +25,9 @@ class TableGoods extends View
         $this->aParams['viewRow'] = '';
     }
 
+    /**
+     * @param View $oView
+     */
     protected function setViewRow($oView)
     {
         $this->aParams['viewRow'] = $oView;

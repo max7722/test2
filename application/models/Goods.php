@@ -28,18 +28,28 @@ use application\core\view\TemplateConfig;
  */
 class Goods extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'goods';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'name', 'active', 'description', 'price', 'image', 'hit', 'new', 'luck'];
     }
 
+    /** @var array */
     protected $aListCategory;
 
+    /**
+     * @return array
+     */
     public function getCategories()
     {
         if (!isset($this->aListCategory)) {
@@ -63,6 +73,9 @@ class Goods extends RecordPrototype
         return $this->aListCategory;
     }
 
+    /**
+     * @return bool
+     */
     public function delete()
     {
         $sql = 'DELETE FROM `category_goods` WHERE id_goods = ?';
@@ -75,6 +88,9 @@ class Goods extends RecordPrototype
         return parent::delete();
     }
 
+    /**
+     * @return string
+     */
     public function getLittleDescription()
     {
         if (strlen($this->description) > 40) {

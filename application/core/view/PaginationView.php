@@ -32,31 +32,49 @@ class PaginationView extends View
         $this->aParams['path'] = '';
     }
 
+    /**
+     * @param int $iValue
+     */
     protected function setId($iValue)
     {
         $this->aParams['id'] = $iValue;
     }
 
+    /**
+     * @param int $iCount
+     */
     protected function setCount($iCount)
     {
         $this->aParams['count'] = $iCount;
     }
 
+    /**
+     * @param int $iActive
+     */
     protected function setActive($iActive)
     {
         $this->aParams['active'] = $iActive;
     }
 
+    /**
+     * @param int $iMaxCount
+     */
     protected function setMaxCount($iMaxCount)
     {
         $this->aParams['maxCount'] = $iMaxCount;
     }
 
+    /**
+     * @param int $iValue
+     */
     protected function setLeftMaxCount($iValue)
     {
         $this->aParams['leftMaxCount'] = $iValue;
     }
 
+    /**
+     * @param string $value
+     */
     protected function setPath($value)
     {
         $this->aParams['path'] = $value;

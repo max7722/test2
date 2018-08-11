@@ -26,6 +26,9 @@ class UserView extends View
         $this->aParams['user'] = \application\core\model\User::getUser()->getModel();
     }
 
+    /**
+     * @param User $oUser
+     */
     public function setUser($oUser)
     {
         $this->aParams['user'] = $oUser;

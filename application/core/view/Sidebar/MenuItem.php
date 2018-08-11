@@ -27,11 +27,17 @@ class MenuItem extends View
         $this->aParams['path'] = '';
     }
 
+    /**
+     * @param string $sTitle
+     */
     public function setTitle($sTitle)
     {
         $this->aParams['title'] = $sTitle;
     }
 
+    /**
+     * @param string $sPath
+     */
     public function setPath($sPath)
     {
         $this->aParams['path'] = $sPath;

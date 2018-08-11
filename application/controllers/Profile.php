@@ -14,6 +14,10 @@ use application\core\PageController;
 use application\core\view\Profile\Profile as ViewProfile;
 use application\models\Order;
 
+/**
+ * Class Profile
+ * @package application\controllers
+ */
 class Profile extends PageController
 {
     public function actionIndex()

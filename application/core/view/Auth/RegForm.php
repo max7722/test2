@@ -41,31 +41,49 @@ class RegForm extends View
         $this->aParams['error'] = 0;
     }
 
+    /**
+     * @param string $value
+     */
     protected function setName($value)
     {
         $this->aParams['name'] = $value;
     }
 
+    /**
+     * @param string $value
+     */
     protected function setPassword($value)
     {
         $this->aParams['password'] = $value;
     }
 
+    /**
+     * @param string $value
+     */
     protected function setRetryPassword($value)
     {
         $this->aParams['retryPassword'] = $value;
     }
 
+    /**
+     * @param string $value
+     */
     protected function setEmail($value)
     {
         $this->aParams['email'] = $value;
     }
 
+    /**
+     * @param bool $value
+     */
     protected function setAgreed($value)
     {
         $this->aParams['agreed'] = $value;
     }
 
+    /**
+     * @param bool $value
+     */
     protected function setError($value)
     {
         $this->aParams['error'] = $value;

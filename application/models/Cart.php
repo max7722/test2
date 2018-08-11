@@ -20,11 +20,17 @@ use application\core\model\RecordPrototype;
  */
 class Cart extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'cart';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'id_user', 'count', 'price'];
@@ -33,6 +39,9 @@ class Cart extends RecordPrototype
     /** @var CartGoods[] */
     private $aCartGoods;
 
+    /**
+     * @return CartGoods[]|bool
+     */
     protected function getGoods()
     {
         if (!isset($this->aCartGoods)) {
@@ -42,6 +51,9 @@ class Cart extends RecordPrototype
         return $this->aCartGoods;
     }
 
+    /**
+     * @param $value
+     */
     protected function setGoods($value)
     {
         $this->aCartGoods = $value;

@@ -20,6 +20,10 @@ use application\models\Delivery;
 use application\models\Goods;
 use application\models\Order;
 
+/**
+ * Class Cart
+ * @package application\controllers
+ */
 class Cart extends PageController
 {
     public function actionIndex()

@@ -11,6 +11,10 @@ namespace application\core\view\Order;
 
 use application\core\View;
 
+/**
+ * Class OrderIndex
+ * @package application\core\view\Order
+ */
 class OrderIndex extends View
 {
     protected $template = 'order/index.php';

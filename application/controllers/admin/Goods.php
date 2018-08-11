@@ -16,6 +16,10 @@ use application\core\view\Catalog\GoodsTableRow;
 use application\core\view\Goods\GoodsEdit;
 use application\core\view\PaginationView;
 
+/**
+ * Class Goods
+ * @package application\controllers\admin
+ */
 class Goods extends AdminController
 {
     public function actionIndex()

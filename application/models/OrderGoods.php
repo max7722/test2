@@ -22,11 +22,17 @@ use application\core\model\RecordPrototype;
  */
 class OrderGoods extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'order_goods';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'id_order', 'id_goods', 'name', 'count', 'price'];

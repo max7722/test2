@@ -16,6 +16,7 @@ use application\core\View;
  * @package application\core\view\Gallery
  * @property View view
  * @property string title
+ * @property int multiple
  */
 class Slider extends View
 {
@@ -32,16 +33,25 @@ class Slider extends View
         $this->aParams['multiple'] = '';
     }
 
+    /**
+     * @param string $value
+     */
     protected function setTitle($value)
     {
         $this->aParams['title'] = $value;
     }
 
+    /**
+     * @param View $value
+     */
     protected function setView($value)
     {
         $this->aParams['view'] = $value;
     }
 
+    /**
+     * @param int $value
+     */
     protected function setMultiple($value)
     {
         $this->aParams['multiple'] = $value;

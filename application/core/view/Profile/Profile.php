@@ -26,6 +26,9 @@ class Profile extends View
         $this->aParams['orderList'] = [];
     }
 
+    /**
+     * @param Order[] $value
+     */
     protected function setOrderList($value)
     {
         $this->aParams['orderList'] = $value;

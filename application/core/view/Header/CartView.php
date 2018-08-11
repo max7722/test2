@@ -26,6 +26,9 @@ class CartView extends View
         $this->aParams['countItemInCart'] = Cart::getCart()->getCount();
     }
 
+    /**
+     * @param int $iValue
+     */
     protected function setCountItemInCart($iValue)
     {
         $this->aParams['countItemInCart'] = $iValue;

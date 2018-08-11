@@ -15,11 +15,17 @@ use application\core\model\RecordPrototype;
  */
 class RegUser extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'register_user';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'name', 'password', 'mail', 'hash', 'time_reg'];

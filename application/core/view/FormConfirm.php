@@ -11,6 +11,10 @@ namespace application\core\view;
 
 use application\core\View;
 
+/**
+ * Class FormConfirm
+ * @package application\core\view
+ */
 class FormConfirm extends View
 {
     protected $template = 'formConfirm.php';

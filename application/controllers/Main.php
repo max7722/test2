@@ -13,11 +13,14 @@ use application\core\PageController;
 use application\core\view\Gallery\GoodstList;
 use application\core\view\Gallery\ImageList;
 use application\core\view\Gallery\Slider;
-use application\core\view\GoodsListRow;
 use application\core\view\Main\MainView;
 use application\core\view\TemplateConfig;
 use application\models\Goods;
 
+/**
+ * Class Main
+ * @package application\controllers
+ */
 class Main extends PageController
 {
     public function actionIndex() {

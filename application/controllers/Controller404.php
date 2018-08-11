@@ -12,6 +12,10 @@ namespace application\controllers;
 use application\core\PageController;
 use application\core\view\Page404;
 
+/**
+ * Class Controller404
+ * @package application\controllers
+ */
 class Controller404 extends PageController
 {
     public function actionIndex()

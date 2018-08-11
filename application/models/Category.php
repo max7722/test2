@@ -23,11 +23,17 @@ use function Couchbase\basicDecoderV1;
  */
 class Category extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'category';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'name', 'active', 'description', 'image'];
@@ -36,6 +42,9 @@ class Category extends RecordPrototype
     /** @var null|Goods [] */
     private $aGoods;
 
+    /**
+     * @return Goods[]|array|null
+     */
     protected function getGoods()
     {
         if (!isset($this->goods)) {
@@ -71,7 +80,8 @@ class Category extends RecordPrototype
     }
 
     /**
-     * @param Goods $oGoods
+     * @param $oGoods
+     * @return bool
      */
     public function addGoods($oGoods)
     {
@@ -89,6 +99,9 @@ class Category extends RecordPrototype
         return False;
     }
 
+    /**
+     * @return string
+     */
     public function getLittleDescription()
     {
         if (strlen($this->description) > 40) {

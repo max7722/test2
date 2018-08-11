@@ -19,6 +19,10 @@ use application\core\view\PaginationView;
 use application\models\Category;
 use application\models\Goods;
 
+/**
+ * Class Catalog
+ * @package application\controllers
+ */
 class Catalog extends PageController
 {
     public function actionIndex()

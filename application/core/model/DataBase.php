@@ -8,7 +8,11 @@
 
 namespace application\core\model;
 
-
+/**
+ * Класс - одиночка для работы с БД
+ * Class DataBase
+ * @package application\core\model
+ */
 class DataBase
 {
     private static $instance;
@@ -25,6 +29,9 @@ class DataBase
     {
     }
 
+    /**
+     * @return \PDO
+     */
     public static function getInstance()
     {
         if (!self::$instance) {

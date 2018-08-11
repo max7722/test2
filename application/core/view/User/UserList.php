@@ -26,6 +26,9 @@ class UserList extends View
         $this->aParams['userList'] = [];
     }
 
+    /**
+     * @param User[] $value
+     */
     protected function setUserList($value)
     {
         $this->aParams['userList'] = $value;

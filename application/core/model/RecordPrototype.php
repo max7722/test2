@@ -8,7 +8,11 @@
 
 namespace application\core\model;
 
-
+/**
+ * Класс родитель для моделей таблиц БД
+ * Class RecordPrototype
+ * @package application\core\model
+ */
 abstract class RecordPrototype
 {
     private $aAttribute = [];
@@ -31,6 +35,10 @@ abstract class RecordPrototype
         return [];
     }
 
+    /**
+     * @param $name
+     * @param $value
+     */
     public function __set($name, $value)
     {
         $sMethod = 'set' . ucfirst($name);
@@ -44,6 +52,10 @@ abstract class RecordPrototype
         }
     }
 
+    /**
+     * @param $name
+     * @return mixed|null
+     */
     public function __get($name)
     {
         $sMethod = 'get' . ucfirst($name);
@@ -63,6 +75,10 @@ abstract class RecordPrototype
         return null;
     }
 
+    /**
+     * RecordPrototype constructor.
+     * @param array $params
+     */
     public function __construct($params = [])
     {
         if (is_array($params)) {

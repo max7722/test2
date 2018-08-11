@@ -12,6 +12,10 @@ namespace application\controllers\admin;
 use application\core\AdminController;
 use application\core\view\User\UserList;
 
+/**
+ * Class User
+ * @package application\controllers\admin
+ */
 class User extends AdminController
 {
     public function actionIndex()

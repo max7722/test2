@@ -24,11 +24,17 @@ use application\core\model\RecordPrototype;
  */
 class User extends RecordPrototype
 {
+    /**
+     * @return string
+     */
     public static function tableName()
     {
         return 'user';
     }
 
+    /**
+     * @return array
+     */
     public static function fields()
     {
         return ['id', 'login', 'password', 'type', 'phone', 'address', 'mail'];
@@ -40,6 +46,9 @@ class User extends RecordPrototype
     /** @var Order[] */
     private $aOrders;
 
+    /**
+     * @return Cart|static
+     */
     protected function getCart()
     {
         if (!isset($this->oCart)) {
@@ -49,11 +58,17 @@ class User extends RecordPrototype
         return $this->oCart;
     }
 
+    /**
+     * @param $value
+     */
     protected function setCart($value)
     {
         $this->oCart = $value;
     }
 
+    /**
+     * @return Order[]|static[]
+     */
     protected function getOrders()
     {
         if (!isset($this->aOrders)) {
@@ -63,6 +78,9 @@ class User extends RecordPrototype
         return $this->aOrders;
     }
 
+    /**
+     * @param $value
+     */
     protected function setOrders($value)
     {
         $this->aOrders = $value;

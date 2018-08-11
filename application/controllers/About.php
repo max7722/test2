@@ -11,6 +11,10 @@ namespace application\controllers;
 
 use application\core\PageController;
 
+/**
+ * Class About
+ * @package application\controllers
+ */
 class About extends PageController
 {
     public function actionIndex()
